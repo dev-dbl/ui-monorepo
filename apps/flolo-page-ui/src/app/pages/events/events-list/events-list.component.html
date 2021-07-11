@@ -1,0 +1,22 @@
+<div class="events-list">
+  <div *ngFor="let event of events" class="event-item">
+    <p-card [header]="event.name" [subheader]="event.location">
+      <ng-template *ngIf="event.image" pTemplate="header">
+        <div class="event-item-header">
+          <img [alt]="event.name" src="assets/events/{{event.image}}">
+        </div>
+      </ng-template>
+
+      <div class="event-item-content">
+        <div class="event-item-date">{{event.startDate | date:'dd/MM/yyyy'}} - {{event.endDate | date:'dd/MM/yyyy'}}</div>
+        <div class="event-item-price">
+          <p-tag severity="success" [rounded]="true" [value]="event.price + ' €'"></p-tag>
+        </div>
+      </div>
+
+      <ng-template pTemplate="footer">
+        <p-button label="Anmelden" icon="pi pi-check"></p-button>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../../../styles/style";
+
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/arya-blue/theme.css";
+@import "~primeng/resources/primeng.min.css";
+@import "~primeflex/src/_variables.scss";
+@import "~primeflex/src/_grid.scss";
+@import "~primeflex/src/_formlayout.scss";
+@import "~primeflex/src/_display.scss";
+@import "~primeflex/src/_text.scss";
+@import "~primeflex/src/flexbox/_flexbox";
+@import "~primeflex/src/_spacing.scss";
+@import "~primeflex/src/_elevation.scss";
+@import "~animate.css/animate.css";
+@import "~@fullcalendar/core/main.min.css";
+@import "~@fullcalendar/daygrid/main.min.css";
+@import "~@fullcalendar/timegrid/main.min.css";
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("assets/pet_schn.jpeg");
+  background-attachment: fixed;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+  min-width: 100%;
+  min-height: 100%;
+}

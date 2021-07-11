@@ -1,0 +1,25 @@
+<div class="sponsors-list">
+  <div *ngFor="let sponsor of sponsors" class="sponsor-item">
+    <img src="assets/sponsors/{{sponsor.image}}" [alt]="sponsor.name" class="sponsor-image" />
+  </div>
+
+
+<!--  <p-carousel [value]="sponsors" [numVisible]="1" [numScroll]="1" [autoplayInterval]="3000"-->
+<!--              [circular]="true" orientation="vertical" [responsiveOptions]="responsiveOptions">-->
+<!--    <ng-template let-sponsor pTemplate="item">-->
+<!--      <div class="sponsor-item">-->
+<!--        <div class="sponsor-item-content">-->
+<!--          <div class="p-mb-3 sponsor-image">-->
+<!--            <img src="assets/sponsors/{{sponsor.image}}" [alt]="sponsor.name" class="sponsor-image" />-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <h4 class="p-mb-1">{{sponsor.name}}</h4>-->
+<!--            <div class="p-mt-5 sponsor-url">-->
+<!--              <a [href]="sponsor.url">{{sponsor.url}}</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-template>-->
+<!--  </p-carousel>-->
+</div>

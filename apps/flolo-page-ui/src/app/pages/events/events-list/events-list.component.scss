@@ -1,0 +1,22 @@
+.events-list {
+
+}
+
+.event-item {
+  border: 1px solid var(--surface-d);
+  border-radius: 3px;
+  margin: .3rem;
+  text-align: center;
+  padding: 2rem;
+
+  .event-item-header {
+    img {
+      width: 75%;
+      max-width: 500px;
+    }
+  }
+
+  .event-item-price {
+    padding-top: 10px;
+  }
+}

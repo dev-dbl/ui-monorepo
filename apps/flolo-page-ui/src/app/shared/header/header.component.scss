@@ -1,0 +1,17 @@
+header {
+  .logo img {
+    width: 5vw;
+  }
+
+  .navigation {
+    text-align: right;
+  }
+
+  .actions {
+    padding-top: 13px;
+
+    button {
+      color: var(--text-color);
+    }
+  }
+}
