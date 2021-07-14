@@ -3,15 +3,11 @@
   height: 100vh;
 
   &-panel {
-    width: 400px;
-    height: 500px;
+    max-width: 400px;
+    max-height: 500px;
     background-color: transparent;
     position: absolute;
     left: calc(50% - 200px);
     top: calc(50% - 250px);
-
-    .full-btn {
-      width: 100%;
-    }
   }
 }

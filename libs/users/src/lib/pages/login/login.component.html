@@ -1,14 +1,12 @@
-
 <div class="login-register">
   <div class="login-register-panel">
     <div class="p-grid">
       <div class="p-col-12" style="text-align: center">
         <img src="assets/login-photo.png" />
       </div>
-      <div class="p-col-12" style="text-align: center">
+      <div class="p-col-12">
         <form [formGroup]="loginFormGroup">
           <div class="p-grid">
-
             <div class="p-col-12">
               <div class="p-inputgroup">
                 <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
@@ -31,7 +29,11 @@
             </div>
 
             <div class="p-col-12">
-              <p-button label="Login" styleClass="full-btn" (onClick)="onLogin()"></p-button>
+              <div class="p-inputgroup">
+                <button pButton pRipple type="button" label="Login" icon="pi pi-check"
+                        class="p-button-rounded" style="width: 100%;"
+                        (click)="onLogin()"></button>
+              </div>
             </div>
 
             <div class="p-col-12" *ngIf="isSubmitted && authMessage">
