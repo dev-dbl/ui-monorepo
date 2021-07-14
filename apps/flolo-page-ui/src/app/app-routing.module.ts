@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { AuthGuard } from '@dbl-dev/users';
 import { EventsListComponent } from './pages/events/events-list/events-list.component';
 import { EventDetailsComponent } from './pages/events/event-details/event-details.component';
 import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-list.component';
@@ -16,7 +15,6 @@ const routes: Routes = [
   },
   {
     path: 'camps',
-    canActivate: [AuthGuard],
     component: EventsListComponent
   },
   {

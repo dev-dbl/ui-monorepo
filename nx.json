@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "flolo-page-admin": {
+      "tags": []
+    },
+    "flolo-page-admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["flolo-page-admin"]
+    },
     "flolo-page-ui": {
       "tags": []
     },
