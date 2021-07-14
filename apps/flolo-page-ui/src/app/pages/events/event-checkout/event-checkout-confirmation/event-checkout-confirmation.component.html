@@ -1,0 +1,54 @@
+<p-card *ngIf="personalData" header="Bestätigung">
+  <div class="event-checkout-confirmation">
+    <div class="p-grid">
+      <div class="p-col">Camp</div>
+      <div class="p-col">{{eventData.event.name}}</div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col">Location</div>
+      <div class="p-col">{{eventData.event.location}}</div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col">Datum</div>
+      <div class="p-col">
+        {{eventData.event.startDate | date: 'dd/MM/yyyy'}} - {{eventData.event.endDate | date: 'dd/MM/yyyy'}}
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="p-grid">
+      <div class="p-col">Vorname</div>
+      <div class="p-col">{{personalData.firstName}}</div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col">Nachname</div>
+      <div class="p-col">{{personalData.lastName}}</div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col">E-Mail</div>
+      <div class="p-col">{{personalData.email}}</div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col">Anmerkungen</div>
+      <div class="p-col">{{personalData.comment}}</div>
+    </div>
+  </div>
+
+  <div class="p-grid">
+    <div class="p-col-6 p-nogutter p-justify-start">
+      <button pButton pRipple type="button" label="Zurück" icon="pi pi-angle-left" iconPos="left"
+              class="p-button-rounded" (click)="previousPage()"></button>
+    </div>
+
+    <div class="p-col-6 p-nogutter p-justify-end">
+      <button pButton pRipple type="button" label="Absenden" icon="pi pi-angle-right" iconPos="right"
+              class="p-button-rounded p-button-success" (click)="send()"></button>
+    </div>
+  </div>
+</p-card>

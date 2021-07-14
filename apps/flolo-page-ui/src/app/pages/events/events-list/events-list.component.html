@@ -8,14 +8,24 @@
       </ng-template>
 
       <div class="event-item-content">
-        <div class="event-item-date">{{event.startDate | date:'dd/MM/yyyy'}} - {{event.endDate | date:'dd/MM/yyyy'}}</div>
+        <div class="event-item-date">{{event.startDate | date:'dd/MM/yyyy'}}
+          - {{event.endDate | date:'dd/MM/yyyy'}}</div>
         <div class="event-item-price">
           <p-tag severity="success" [rounded]="true" [value]="event.price + ' €'"></p-tag>
         </div>
       </div>
 
       <ng-template pTemplate="footer">
-        <p-button label="Anmelden" icon="pi pi-check"></p-button>
+        <div>
+          <button pButton pRipple type="button" label="Anmelden" icon="pi pi-check"
+                  class="p-button-rounded p-button-warning"
+                  [routerLink]="'/camps/checkout/' + event.id"></button>
+        </div>
+
+        <div style="padding: 5px;">
+          <button pButton pRipple type="button" label="Details" icon="pi pi-search" class="p-button-rounded"
+                  [routerLink]="'/camps/' + event.id"></button>
+        </div>
       </ng-template>
     </p-card>
   </div>

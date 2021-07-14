@@ -1,5 +1,5 @@
 export class Event {
-  id? : string;
+  id : string;
   name : string;
   description: string;
   startDate: Date;

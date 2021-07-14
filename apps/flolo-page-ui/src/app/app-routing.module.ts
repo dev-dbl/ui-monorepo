@@ -5,6 +5,9 @@ import { AuthGuard } from '@dbl-dev/users';
 import { EventsListComponent } from './pages/events/events-list/events-list.component';
 import { EventDetailsComponent } from './pages/events/event-details/event-details.component';
 import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-list.component';
+import { EventCheckoutComponent } from './pages/events/event-checkout/event-checkout.component';
+import { EventCheckoutPersonalDataComponent } from './pages/events/event-checkout/event-checkout-personal-data/event-checkout-personal-data.component';
+import { EventCheckoutConfirmationComponent } from './pages/events/event-checkout/event-checkout-confirmation/event-checkout-confirmation.component';
 
 const routes: Routes = [
   {
@@ -17,8 +20,27 @@ const routes: Routes = [
     component: EventsListComponent
   },
   {
-    path: 'camps/details',
+    path: 'camps/:eventId',
     component: EventDetailsComponent
+  },
+  {
+    path: 'camps/checkout/:eventId',
+    component: EventCheckoutComponent,
+    children: [
+      {
+        path:'',
+        redirectTo: 'personal-data',
+        pathMatch: 'full'
+      },
+      {
+        path: 'personal-data',
+        component: EventCheckoutPersonalDataComponent
+      },
+      {
+        path: 'confirmation',
+        component: EventCheckoutConfirmationComponent
+      }
+    ]
   },
   {
     path: 'sponsors',

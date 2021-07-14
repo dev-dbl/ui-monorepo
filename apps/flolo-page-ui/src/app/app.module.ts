@@ -25,9 +25,20 @@ import { EventDetailsComponent } from './pages/events/event-details/event-detail
 import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-list.component';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToastModule } from 'primeng/toast';
+import { EventCheckoutPersonalDataComponent } from './pages/events/event-checkout/event-checkout-personal-data/event-checkout-personal-data.component';
+import { EventCheckoutComponent } from './pages/events/event-checkout/event-checkout.component';
+import { StepsModule } from 'primeng/steps';
+import { EventCheckoutService } from './services/event-checkout.service';
+import { EventCheckoutConfirmationComponent } from './pages/events/event-checkout/event-checkout-confirmation/event-checkout-confirmation.component';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -43,9 +54,17 @@ import { TagModule } from 'primeng/tag';
     TimelineModule,
     GMapModule,
     CarouselModule,
-    TagModule
+    TagModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputTextareaModule,
+    ToastModule,
+    StepsModule,
+    KeyFilterModule,
+    MessageModule
   ],
-  providers: [EventsService, MessageService,
+  providers: [EventsService, MessageService, EventCheckoutService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

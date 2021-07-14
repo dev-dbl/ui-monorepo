@@ -1,6 +1,18 @@
 header {
-  .logo img {
-    width: 5vw;
+  .logo {
+    img {
+      width: 5vw;
+    }
+
+    a {
+      color: var(--text-color);
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--text-color-secondary);
+      }
+    }
   }
 
   .navigation {
