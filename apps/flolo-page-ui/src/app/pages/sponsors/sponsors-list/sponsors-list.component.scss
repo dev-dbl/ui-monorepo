@@ -11,14 +11,23 @@
 }
 
 .sponsor-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-  //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+.sponsor-name {
+  padding-top: 10px;
+  font-size: x-large;
 }
 
 .sponsor-url {
+  padding-top: 10px;
+
   a {
     color: var(--text-color);
     cursor: pointer;
