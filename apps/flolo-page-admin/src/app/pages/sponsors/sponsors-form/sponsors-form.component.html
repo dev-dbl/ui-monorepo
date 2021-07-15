@@ -1,0 +1,49 @@
+<div class="flpa-sponsors-list">
+  <p-card [header]="editMode ? 'Edit Sponsor' : 'Add Sponsor'"
+          [subheader]="editMode ? 'Sponsor bearbeiten' : 'Neuen Sponsor hinzufügen'">
+    <div class="p-grid p-mb-5">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button pButton pRipple type="button" label=""
+                    [icon]="editMode ? 'pi pi-pencil' : 'pi pi-plus'"
+                    class="p-button-rounded p-button-primary p-mr-3"
+                    (click)="onSubmit()"></button>
+            <button pButton pRipple type="button" label=""
+                    icon="pi pi-arrow-circle-left"
+                    class="p-button-rounded p-button-secondary"
+                    (click)="onCancel()"></button>
+          </div>
+        </p-toolbar>
+      </div>
+
+      <div class="p-col-12">
+        <form [formGroup]="form">
+          <div class="p-fluid">
+            <div class="p-field">
+              <label for="name">Name</label>
+              <input formControlName="name" id="name" type="text" pInputText />
+              <small *ngIf="sponsorForm.name.invalid && isSubmitted" class="p-error">Name wird benötigt</small>
+            </div>
+
+            <div class="p-field">
+              <label for="url">Website</label>
+              <input formControlName="url" id="url" type="text" pInputText />
+            </div>
+
+            <div class="p-field">
+              <label for="image">Logo</label>
+              <input id="image" type="file" accept="image/*" pInputText
+                     (change)="onImageUpload($event)"/>
+              <div class="p-col-4 p-mt-2 p-pl-0">
+                <img [src]="imagePreview" alt="" style="width: 100%" />
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

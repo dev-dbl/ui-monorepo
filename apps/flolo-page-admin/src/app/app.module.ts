@@ -10,18 +10,42 @@ import { TableModule } from 'primeng/table';
 import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-list.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, UsersModule } from '@dbl-dev/users';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { CardModule } from 'primeng/card';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
+import { SponsorsFormComponent } from './pages/sponsors/sponsors-form/sponsors-form.component';
+import { RippleModule } from 'primeng/ripple';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SponsorsService } from '@dbl-dev/sponsors';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
-  declarations: [AppComponent, ShellComponent, DashboardComponent, SponsorsListComponent],
+  declarations: [AppComponent, ShellComponent, DashboardComponent, SponsorsListComponent, SidebarComponent, SponsorsFormComponent],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     UsersModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    CardModule,
+    ToolbarModule,
+    ButtonModule,
+    RippleModule,
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    ConfirmDialogModule
   ],
-  providers: [
+  providers: [SponsorsService, MessageService, ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],

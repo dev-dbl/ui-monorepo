@@ -4,11 +4,12 @@ import { AuthGuard } from '@dbl-dev/users';
 import { ShellComponent } from './shared/shell/shell.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-list.component';
+import { SponsorsFormComponent } from './pages/sponsors/sponsors-form/sponsors-form.component';
 
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: ShellComponent,
     children: [
       {
@@ -18,6 +19,14 @@ const routes: Routes = [
       {
         path: 'sponsors',
         component: SponsorsListComponent
+      },
+      {
+        path: 'sponsors/form',
+        component: SponsorsFormComponent
+      },
+      {
+        path: 'sponsors/form/:sponsorId',
+        component: SponsorsFormComponent
       }
     ]
   },

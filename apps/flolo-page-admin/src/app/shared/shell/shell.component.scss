@@ -1,0 +1,32 @@
+.flpa {
+  &-wrapper {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-sidebar {
+    position: fixed;
+    width: 50px;
+    background-color: var(--surface-e);
+    height: 100%;
+    top: 0;
+  }
+
+  &-main {
+    width: calc(100% - 50px);
+    margin-left: 50px;
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .flpa-sidebar {
+    width: 150px;
+  }
+
+  .flpa-main {
+    width: calc(100% - 150px);
+    margin-left: 150px;
+  }
+}

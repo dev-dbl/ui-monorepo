@@ -1,0 +1,6 @@
+@media screen and (max-width: 600px) {
+  p-table#sponsors-table tr th:nth-child(2),
+  p-table#sponsors-table tr td:nth-child(2) {
+    display: none !important;
+  }
+}
