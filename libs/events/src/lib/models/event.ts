@@ -1,3 +1,5 @@
+import { EventRegistration } from './eventRegistration';
+
 export class Event {
   id : string;
   name : string;
@@ -6,7 +8,9 @@ export class Event {
   endDate: Date;
   location: string;
   image?: string;
+  images?: string[];
   status: string;
   price: number;
   maxParticipants?: number;
+  eventRegistrations?: EventRegistration[]
 }

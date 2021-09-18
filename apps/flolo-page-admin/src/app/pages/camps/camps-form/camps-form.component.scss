@@ -1,0 +1,16 @@
+.images-preview-galleria {
+  width: 100%;
+}
+
+@media screen and (max-width: 350px) {
+  :host ::ng-deep .images-preview-galleria {
+    p-galleriaThumbnails {
+      display: none !important;
+    }
+
+    button {
+      display: block !important;
+      width: 25% !important;
+    }
+  }
+}

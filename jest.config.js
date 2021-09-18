@@ -6,5 +6,8 @@ module.exports = {
     "<rootDir>/libs/users",
     "<rootDir>/libs/sponsors",
     "<rootDir>/apps/flolo-page-admin",
+    "<rootDir>/apps/eatit",
+    "<rootDir>/libs/products",
+    "<rootDir>/libs/orders",
   ],
 };

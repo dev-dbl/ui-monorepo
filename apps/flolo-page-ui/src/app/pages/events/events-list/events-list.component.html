@@ -3,7 +3,7 @@
     <p-card [header]="event.name" [subheader]="event.location">
       <ng-template *ngIf="event.image" pTemplate="header">
         <div class="event-item-header">
-          <img [alt]="event.name" src="assets/events/{{event.image}}">
+          <img [alt]="event.name" src="{{event.image}}">
         </div>
       </ng-template>
 

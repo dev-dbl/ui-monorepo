@@ -1,6 +1,122 @@
 {
   "version": 1,
   "projects": {
+    "eatit": {
+      "projectType": "application",
+      "root": "apps/eatit",
+      "sourceRoot": "apps/eatit/src",
+      "prefix": "dbl-dev",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/eatit",
+            "index": "apps/eatit/src/index.html",
+            "main": "apps/eatit/src/main.ts",
+            "polyfills": "apps/eatit/src/polyfills.ts",
+            "tsConfig": "apps/eatit/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/eatit/src/favicon.ico", "apps/eatit/src/assets"],
+            "styles": ["apps/eatit/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "environments/environment.ts",
+                  "with": "environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "eatit:build:production"
+            },
+            "development": {
+              "browserTarget": "eatit:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "eatit:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/eatit/src/**/*.ts",
+              "apps/eatit/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/eatit"],
+          "options": {
+            "jestConfig": "apps/eatit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "eatit-e2e": {
+      "root": "apps/eatit-e2e",
+      "sourceRoot": "apps/eatit-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/eatit-e2e/cypress.json",
+            "tsConfig": "apps/eatit-e2e/tsconfig.e2e.json",
+            "devServerTarget": "eatit:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "eatit:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/eatit-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "flolo-page-admin": {
       "projectType": "application",
       "root": "apps/flolo-page-admin",
@@ -22,7 +138,7 @@
               "apps/flolo-page-admin/src/assets"
             ],
             "styles": ["apps/flolo-page-admin/src/styles.scss"],
-            "scripts": []
+            "scripts": ["node_modules/quill/dist/quill.js"]
           },
           "configurations": {
             "production": {
@@ -235,6 +351,48 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/flolo-page-ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "orders": {
+      "root": "libs/orders",
+      "sourceRoot": "libs/orders/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/orders/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/orders"],
+          "options": {
+            "jestConfig": "libs/orders/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "products": {
+      "root": "libs/products",
+      "sourceRoot": "libs/products/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/products/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/products"],
+          "options": {
+            "jestConfig": "libs/products/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

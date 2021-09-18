@@ -1,0 +1,98 @@
+<div class="flpa-camps-form">
+  <p-card [header]="editMode ? 'Edit Camp' : 'Add Camp'"
+          [subheader]="editMode ? 'Camp bearbeiten' : 'Neues Camp hinzufügen'">
+    <div class="p-grid p-mb-5">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button pButton pRipple type="button" label=""
+                    [icon]="editMode ? 'pi pi-pencil' : 'pi pi-plus'"
+                    class="p-button-rounded p-button-primary p-mr-3"
+                    (click)="onSubmit()"></button>
+            <button pButton pRipple type="button" label=""
+                    icon="pi pi-arrow-circle-left"
+                    class="p-button-rounded p-button-secondary"
+                    (click)="onCancel()"></button>
+          </div>
+        </p-toolbar>
+      </div>
+
+      <div class="p-col-12">
+        <form [formGroup]="form">
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12">
+              <label for="name">Name</label>
+              <input formControlName="name" id="name" type="text" pInputText />
+              <small *ngIf="campForm.name.invalid && isSubmitted" class="p-error">Name wird benötigt</small>
+            </div>
+
+            <div class="p-field p-col-12">
+              <label for="location">Location</label>
+              <input formControlName="location" id="location" type="text" pInputText />
+              <small *ngIf="campForm.location.invalid && isSubmitted" class="p-error">Location wird benötigt</small>
+            </div>
+
+            <div class="p-field p-col-12 p-sm-6">
+              <label for="date">Datum</label>
+              <p-calendar formControlName="date" id="date"
+                          dateFormat="dd/mm/yy"
+                          [touchUI]="true"
+                          selectionMode="range" [readonlyInput]="true" inputId="range" [firstDayOfWeek]="1"></p-calendar>
+              <small *ngIf="campForm.date.invalid && isSubmitted" class="p-error">Datum wird benötigt</small>
+            </div>
+
+            <div class="p-field p-col-12 p-sm-6">
+              <label for="price">Preis</label>
+              <p-inputNumber formControlName="price" id="price" inputId="currency" suffix=" €" [min]="0"></p-inputNumber>
+              <small *ngIf="campForm.price.invalid && isSubmitted" class="p-error">Preis wird benötigt</small>
+            </div>
+
+            <div class="p-field p-col-12">
+              <label for="description">Beschreibung</label>
+              <p-editor formControlName="description" id="description" [style]="{'height':'320px'}"></p-editor>
+              <small *ngIf="campForm.description.invalid && isSubmitted" class="p-error">Beschreibung wird benötigt</small>
+            </div>
+
+            <div class="p-field p-col-12">
+              <label for="image">Anzeigebild</label>
+              <input id="image" type="file" accept="image/*" pInputText
+                     (change)="onImageUpload($event)"/>
+
+              <div class="p-col-4 p-mt-2 p-pl-0">
+                <img [src]="imagePreview" alt="" style="width: 100%" />
+              </div>
+            </div>
+
+            <div class="p-field p-col-12">
+              <label for="images">Gallery</label>
+              <input id="images" type="file" accept="image/*" pInputText multiple
+                     (change)="onImagesUpload($event)"/>
+
+              <p-galleria [value]="imagesPreview" [numVisible]="5" [circular]="true"
+                          [responsiveOptions]="responsiveOptions" [showItemNavigators]="true"
+                          containerClass="images-preview-galleria p-pt-2"
+                          [showThumbnailNavigators]="false">
+                <ng-template pTemplate="item" let-image>
+                  <img [src]="image" [alt]="" style="width: 100%; display: block;" />
+                  <div style="position:absolute; right:0; top:0;">
+                    <button pButton pRipple type="button" label=""
+                            icon="pi pi-trash"
+                            class="p-button-rounded p-button-danger"
+                            (click)="removeImage(image)"></button>
+                  </div>
+                </ng-template>
+
+                <ng-template pTemplate="thumbnail" let-image>
+                  <div class="p-grid p-nogutter p-justify-center p-pr-2">
+                    <img [src]="image" style="width: 100%; display: block" />
+                  </div>
+                </ng-template>
+              </p-galleria>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

@@ -1,5 +1,22 @@
 <div class="event-details" *ngIf="event">
   <p-card [header]="event.name" [subheader]="event.location">
+    <p-galleria [value]="images" [numVisible]="5" [circular]="true"
+                [showThumbnails]="false" [showIndicators]="true"
+                [changeItemOnIndicatorHover]="true" [showIndicatorsOnItem]="true"
+                [autoPlay]="true" [transitionInterval]="5000"
+                [responsiveOptions]="responsiveOptions"
+                containerClass="p-pb-2">
+      <ng-template pTemplate="item" let-image>
+        <img [src]="image" [alt]="" style="width: 100%; display: block;" />
+      </ng-template>
+
+<!--      <ng-template pTemplate="thumbnail" let-item>-->
+<!--        <div class="p-grid p-nogutter p-justify-center">-->
+<!--          <img [src]="image" style="display: block" />-->
+<!--        </div>-->
+<!--      </ng-template>-->
+    </p-galleria>
+
     <div [innerHTML]="event.description"></div>
     <div style="padding-top: 10px;">
       <button pButton pRipple type="button" label="Anmelden" icon="pi pi-check"

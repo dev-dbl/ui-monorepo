@@ -24,9 +24,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SponsorsService } from '@dbl-dev/sponsors';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { CampsListComponent } from './pages/camps/camps-list/camps-list.component';
+import { CampsFormComponent } from './pages/camps/camps-form/camps-form.component';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { EditorModule } from 'primeng/editor';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CampsRegistrationsComponent } from './pages/camps/camps-registrations/camps-registrations.component';
+import { GalleriaModule } from 'primeng/galleria';
+import { TagModule } from 'primeng/tag';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
-  declarations: [AppComponent, ShellComponent, DashboardComponent, SponsorsListComponent, SidebarComponent, SponsorsFormComponent],
+  declarations: [AppComponent, ShellComponent, DashboardComponent, SponsorsListComponent, SidebarComponent, SponsorsFormComponent, CampsListComponent, CampsFormComponent, CampsRegistrationsComponent],
   imports: [
     BrowserModule,
     RouterModule,
@@ -43,7 +53,14 @@ import { ConfirmationService } from 'primeng/api';
     ReactiveFormsModule,
     ToastModule,
     BrowserAnimationsModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CalendarModule,
+    InputTextareaModule,
+    EditorModule,
+    InputNumberModule,
+    GalleriaModule,
+    TagModule,
+    BadgeModule
   ],
   providers: [SponsorsService, MessageService, ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

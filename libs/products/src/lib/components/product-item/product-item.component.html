@@ -1,0 +1,23 @@
+<div class="product-item">
+<!--  <img *ngIf="product.image" [src]="product.image" [alt]="product.name" />-->
+
+  <div class="p-grid nested-grid">
+    <div class="p-col-8 details">
+      <div class="title">{{product.name}}</div>
+      <div class="subtitle">{{product.description}}</div>
+    </div>
+    <div class="p-col-4 actions p-text-right">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <div class="price">{{product.price | currency}}</div>
+        </div>
+        <div class="p-col-12">
+          <button pButton pRipple
+                  class="p-button-rounded p-button-success" icon="pi pi-shopping-cart"
+                  (click)="addToCart(product)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

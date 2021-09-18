@@ -41,27 +41,27 @@ export class EventCheckoutComponent implements OnInit, OnDestroy {
 
     this.subscription = this.eventCheckoutService.chekoutComplete$.subscribe((checkoutInformation: any) => {
 
-      this.eventsService.bookEvent({
-        eventId: checkoutInformation.eventData.event.id,
-        firstName: checkoutInformation.personalData.firstName,
-        lastName: checkoutInformation.personalData.lastName,
-        email: checkoutInformation.personalData.email,
-        comment: checkoutInformation.personalData.comment
-      }).subscribe(res => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Erfolgreich',
-            detail: 'Die Anmeldung wurde aufgenommen.'
-          });
-          this.router.navigate(['/']);
-        },
-        () => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Fehler',
-            detail: 'Fehler bei der Anmeldung.'
-          });
-        });
+      // this.eventsService.bookEvent({
+      //   eventId: checkoutInformation.eventData.event.id,
+      //   firstName: checkoutInformation.personalData.firstName,
+      //   lastName: checkoutInformation.personalData.lastName,
+      //   email: checkoutInformation.personalData.email,
+      //   comment: checkoutInformation.personalData.comment
+      // }).subscribe(res => {
+      //     this.messageService.add({
+      //       severity: 'success',
+      //       summary: 'Erfolgreich',
+      //       detail: 'Die Anmeldung wurde aufgenommen.'
+      //     });
+      //     this.router.navigate(['/']);
+      //   },
+      //   () => {
+      //     this.messageService.add({
+      //       severity: 'error',
+      //       summary: 'Fehler',
+      //       detail: 'Fehler bei der Anmeldung.'
+      //     });
+      //   });
     });
   }
 

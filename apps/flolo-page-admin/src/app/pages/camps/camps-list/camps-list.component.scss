@@ -1,0 +1,13 @@
+@media screen and (max-width: 500px) {
+  p-table#camps-table tr th:nth-child(2),
+  p-table#camps-table tr td:nth-child(2) {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  p-table#camps-table tr th:nth-child(3),
+  p-table#camps-table tr td:nth-child(3) {
+    display: none !important;
+  }
+}

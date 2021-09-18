@@ -5,6 +5,9 @@ import { ShellComponent } from './shared/shell/shell.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-list.component';
 import { SponsorsFormComponent } from './pages/sponsors/sponsors-form/sponsors-form.component';
+import { CampsFormComponent } from './pages/camps/camps-form/camps-form.component';
+import { CampsListComponent } from './pages/camps/camps-list/camps-list.component';
+import { CampsRegistrationsComponent } from './pages/camps/camps-registrations/camps-registrations.component';
 
 const routes: Routes = [
   {
@@ -27,6 +30,22 @@ const routes: Routes = [
       {
         path: 'sponsors/form/:sponsorId',
         component: SponsorsFormComponent
+      },
+      {
+        path: 'camps',
+        component: CampsListComponent
+      },
+      {
+        path: 'camps/form',
+        component: CampsFormComponent
+      },
+      {
+        path: 'camps/form/:campId',
+        component: CampsFormComponent
+      },
+      {
+        path: 'camps/registrations/:campId',
+        component: CampsRegistrationsComponent
       }
     ]
   },

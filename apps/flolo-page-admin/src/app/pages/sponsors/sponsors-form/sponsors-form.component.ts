@@ -95,7 +95,6 @@ export class SponsorsFormComponent implements OnInit {
   }
 
   private _editSponsor(sponsorData: FormData) {
-    console.log(sponsorData.get('image'));
     this.sponsorsService.editSponsor(sponsorData, `${this.sponsor.id}`).subscribe(res => {
         this.messageService.add({
           severity: 'success',

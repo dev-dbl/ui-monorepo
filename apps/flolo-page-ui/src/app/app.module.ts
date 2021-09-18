@@ -37,6 +37,7 @@ import { EventCheckoutConfirmationComponent } from './pages/events/event-checkou
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { MessageModule } from 'primeng/message';
 import { SponsorsService } from '@dbl-dev/sponsors';
+import { GalleriaModule } from 'primeng/galleria';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent],
@@ -63,7 +64,8 @@ import { SponsorsService } from '@dbl-dev/sponsors';
     ToastModule,
     StepsModule,
     KeyFilterModule,
-    MessageModule
+    MessageModule,
+    GalleriaModule
   ],
   providers: [EventsService, SponsorsService, MessageService, EventCheckoutService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

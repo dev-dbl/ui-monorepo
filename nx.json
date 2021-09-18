@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "eatit": {
+      "tags": []
+    },
+    "eatit-e2e": {
+      "tags": [],
+      "implicitDependencies": ["eatit"]
+    },
     "flolo-page-admin": {
       "tags": []
     },
@@ -40,6 +47,12 @@
     "flolo-page-ui-e2e": {
       "tags": [],
       "implicitDependencies": ["flolo-page-ui"]
+    },
+    "orders": {
+      "tags": []
+    },
+    "products": {
+      "tags": []
     },
     "sponsors": {
       "tags": []

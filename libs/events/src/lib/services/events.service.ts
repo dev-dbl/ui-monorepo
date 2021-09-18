@@ -6,6 +6,8 @@ import { Event } from '../models/event';
 // @ts-ignore
 import { environment } from '@dbl-dev/env/environment';
 import { EventBooking } from '../models/eventBooking';
+import { Sponsor } from '@dbl-dev/sponsors';
+import { EventRegistration } from '../models/eventRegistration';
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +25,23 @@ export class EventsService {
     return this.http.get<Event>(`${this.apiUrlEvents}/${eventId}`);
   }
 
-  createEvent(event: Event): Observable<Event> {
-    return this.http.post<Event>(this.apiUrlEvents, event);
+  createEvent(eventData: FormData): Observable<Event> {
+    return this.http.post<Event>(this.apiUrlEvents, eventData);
   }
 
-  bookEvent(eventBooking: EventBooking): Observable<any> {
-    return this.http.post<any>(`${this.apiUrlEvents}/book`, eventBooking);
+  editEvent(eventData: FormData, eventId: string): Observable<Event> {
+    return this.http.put<Event>(`${this.apiUrlEvents}/${eventId}`, eventData);
+  }
+
+  deleteEvent(event: Event): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrlEvents}/${event.id}`);
+  }
+
+  addEventRegistration(eventRegistration: EventRegistration): Observable<EventRegistration> {
+    return this.http.post<EventRegistration>(`${this.apiUrlEvents}/registration`, eventRegistration);
+  }
+
+  editEventRegistration(eventRegistration: EventRegistration): Observable<EventRegistration> {
+    return this.http.put<EventRegistration>(`${this.apiUrlEvents}/registration/${eventRegistration.id}`, eventRegistration);
   }
 }
