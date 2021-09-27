@@ -38,9 +38,13 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { MessageModule } from 'primeng/message';
 import { SponsorsService } from '@dbl-dev/sponsors';
 import { GalleriaModule } from 'primeng/galleria';
+import { CampDetailsComponent } from './pages/camps/camp-details/camp-details.component';
+import { ContactFormComponent } from './pages/general/contact-form/contact-form.component';
+import { FaqComponent } from './pages/general/faq/faq.component';
+import { BeachteamComponent } from './pages/general/beachteam/beachteam.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, CampDetailsComponent, ContactFormComponent, FaqComponent, BeachteamComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

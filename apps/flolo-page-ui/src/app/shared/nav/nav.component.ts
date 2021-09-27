@@ -12,4 +12,15 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleNavBar() {
+    const navLinks = document.getElementById("navLinks");
+    if (!navLinks) {
+      return;
+    }
+    if (navLinks.className.includes(" hidden")) {
+      navLinks.className = navLinks.className.replace(" hidden", "");
+    } else {
+      navLinks.className += " hidden";
+    }
+  }
 }

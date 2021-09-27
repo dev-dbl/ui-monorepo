@@ -1,29 +1,23 @@
-header {
-  .logo {
-    img {
-      width: 5vw;
-    }
-
-    a {
-      color: var(--text-color);
-      cursor: pointer;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--text-color-secondary);
-      }
-    }
-  }
-
-  .navigation {
-    text-align: right;
-  }
-
-  .actions {
-    padding-top: 13px;
-
-    button {
-      color: var(--text-color);
-    }
-  }
-}
+//header {
+//
+//
+//  .logo {
+//    img {
+//      width: 5vw;
+//    }
+//
+//    a {
+//      color: var(--text-color);
+//      cursor: pointer;
+//      text-decoration: none;
+//
+//      &:hover {
+//        color: var(--text-color-secondary);
+//      }
+//    }
+//  }
+//
+//  .navigation {
+//    text-align: right;
+//  }
+//}

@@ -4,14 +4,7 @@
 @import "~primeicons/primeicons.css";
 @import "~primeng/resources/themes/saga-orange/theme.css";
 @import "~primeng/resources/primeng.min.css";
-@import "~primeflex/src/_variables.scss";
-@import "~primeflex/src/_grid.scss";
-@import "~primeflex/src/_formlayout.scss";
-@import "~primeflex/src/_display.scss";
-@import "~primeflex/src/_text.scss";
-@import "~primeflex/src/flexbox/_flexbox";
-@import "~primeflex/src/_spacing.scss";
-@import "~primeflex/src/_elevation.scss";
+@import "~primeflex/primeflex.css";
 @import "~animate.css/animate.css";
 @import "~@fullcalendar/core/main.min.css";
 @import "~@fullcalendar/daygrid/main.min.css";
@@ -25,7 +18,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("assets/pet_schn.jpeg");
+  //background-image: url("assets/pet_schn.jpeg");
+  background-image: url("assets/background.webp");
   background-attachment: fixed;
   background-size:     cover;
   background-repeat:   no-repeat;

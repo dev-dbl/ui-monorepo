@@ -1,17 +1,9 @@
-footer {
-  padding-top: 10px;
+a {
+  color: var(--text-white);
+  cursor: pointer;
+  text-decoration: none;
 
-  .copyright {
-
-  }
-
-  .social {
-    width: 70px;
-    padding-right: 20px;
-    text-align: right;
-
-    img {
-      width: 16px;
-    }
+  &:hover {
+    //color: var(--text-color-secondary);
   }
 }

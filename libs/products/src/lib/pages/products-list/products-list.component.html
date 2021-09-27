@@ -1,8 +1,8 @@
 <p-tabView>
   <p-tabPanel [header]="category.name" *ngFor="let category of categories; let i = index" [selected]="i === 0">
     <div class="products-list">
-      <div *ngIf="productsMap.get(category.id)" class="p-grid">
-        <div *ngFor="let product of productsMap.get(category.id)" class="p-col">
+      <div *ngIf="productsMap.get(category.id)" class="grid">
+        <div *ngFor="let product of productsMap.get(category.id)" class="col">
           <products-product-item [product]="product" ></products-product-item>
         </div>
       </div>

@@ -7,6 +7,10 @@ import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-l
 import { EventCheckoutComponent } from './pages/events/event-checkout/event-checkout.component';
 import { EventCheckoutPersonalDataComponent } from './pages/events/event-checkout/event-checkout-personal-data/event-checkout-personal-data.component';
 import { EventCheckoutConfirmationComponent } from './pages/events/event-checkout/event-checkout-confirmation/event-checkout-confirmation.component';
+import { CampDetailsComponent } from './pages/camps/camp-details/camp-details.component';
+import { ContactFormComponent } from './pages/general/contact-form/contact-form.component';
+import { FaqComponent } from './pages/general/faq/faq.component';
+import { BeachteamComponent } from './pages/general/beachteam/beachteam.component';
 
 const routes: Routes = [
   {
@@ -14,36 +18,52 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'camps',
-    component: EventsListComponent
+    path: 'camps/details',
+    component: CampDetailsComponent
   },
   {
-    path: 'camps/:eventId',
-    component: EventDetailsComponent
+    path: 'beachteam',
+    component: BeachteamComponent
   },
   {
-    path: 'camps/checkout/:eventId',
-    component: EventCheckoutComponent,
-    children: [
-      {
-        path:'',
-        redirectTo: 'personal-data',
-        pathMatch: 'full'
-      },
-      {
-        path: 'personal-data',
-        component: EventCheckoutPersonalDataComponent
-      },
-      {
-        path: 'confirmation',
-        component: EventCheckoutConfirmationComponent
-      }
-    ]
+    path: 'contact',
+    component: ContactFormComponent
   },
   {
-    path: 'sponsors',
-    component: SponsorsListComponent
+    path: 'faq',
+    component: FaqComponent
   }
+  // {
+  //   path: 'camps',
+  //   component: EventsListComponent
+  // },
+  // {
+  //   path: 'camps/:eventId',
+  //   component: EventDetailsComponent
+  // },
+  // {
+  //   path: 'camps/checkout/:eventId',
+  //   component: EventCheckoutComponent,
+  //   children: [
+  //     {
+  //       path:'',
+  //       redirectTo: 'personal-data',
+  //       pathMatch: 'full'
+  //     },
+  //     {
+  //       path: 'personal-data',
+  //       component: EventCheckoutPersonalDataComponent
+  //     },
+  //     {
+  //       path: 'confirmation',
+  //       component: EventCheckoutConfirmationComponent
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: 'sponsors',
+  //   component: SponsorsListComponent
+  // }
   // {
   //   path: '**',
   //   redirectTo: '',

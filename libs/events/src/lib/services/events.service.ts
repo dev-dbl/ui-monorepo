@@ -44,4 +44,11 @@ export class EventsService {
   editEventRegistration(eventRegistration: EventRegistration): Observable<EventRegistration> {
     return this.http.put<EventRegistration>(`${this.apiUrlEvents}/registration/${eventRegistration.id}`, eventRegistration);
   }
+
+  getImages() {
+    return this.http.get<any>('assets/events/3_seen_tour/images.json')
+      .toPromise()
+      .then(res => res.data)
+      .then(data => { return data; });
+  }
 }
