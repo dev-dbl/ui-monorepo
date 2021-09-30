@@ -11,6 +11,7 @@ import { CampDetailsComponent } from './pages/camps/camp-details/camp-details.co
 import { ContactFormComponent } from './pages/general/contact-form/contact-form.component';
 import { FaqComponent } from './pages/general/faq/faq.component';
 import { BeachteamComponent } from './pages/general/beachteam/beachteam.component';
+import { DreiSeenTourComponent } from './pages/camps/drei-seen-tour/drei-seen-tour.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'camps/details',
     component: CampDetailsComponent
+  },
+  {
+    path: '3-seen-tour',
+    component: DreiSeenTourComponent
   },
   {
     path: 'beachteam',

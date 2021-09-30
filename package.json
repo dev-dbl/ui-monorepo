@@ -44,6 +44,7 @@
     "@fullcalendar/interaction": "^5.8.0",
     "@fullcalendar/timegrid": "^5.8.0",
     "@nrwl/angular": "12.5.2",
+    "angular-cli-ghpages": "^1.0.0-rc.2",
     "animate.css": "^4.1.1",
     "normalize.css": "^8.0.1",
     "primeflex": "^3.0.1",

@@ -42,9 +42,10 @@ import { CampDetailsComponent } from './pages/camps/camp-details/camp-details.co
 import { ContactFormComponent } from './pages/general/contact-form/contact-form.component';
 import { FaqComponent } from './pages/general/faq/faq.component';
 import { BeachteamComponent } from './pages/general/beachteam/beachteam.component';
+import { DreiSeenTourComponent } from './pages/camps/drei-seen-tour/drei-seen-tour.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, CampDetailsComponent, ContactFormComponent, FaqComponent, BeachteamComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, CampDetailsComponent, ContactFormComponent, FaqComponent, BeachteamComponent, DreiSeenTourComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
