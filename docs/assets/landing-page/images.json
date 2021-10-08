@@ -1,0 +1,22 @@
+{
+  "data":[
+    {
+      "previewImageSrc": "assets/landing-page/DSC03425.jpg",
+      "thumbnailImageSrc": "assets/landing-page/DSC03425.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "previewImageSrc": "assets/landing-page/Mattsee_quer.jpg",
+      "thumbnailImageSrc": "assets/landing-page/Mattsee_quer.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "previewImageSrc": "assets/landing-page/20210821 ProBeachBattle Nepel_412_7M1A5623.jpg",
+      "thumbnailImageSrc": "assets/landing-page/20210821 ProBeachBattle Nepel_412_7M1A5623.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    }
+  ]
+}
