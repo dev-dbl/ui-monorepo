@@ -15,7 +15,7 @@ export class DreiSeenTourComponent implements OnInit {
   constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
-    this.eventsService.getImages().then(images => this.images = images);
+    this.eventsService.getImages('assets/events/3_seen_tour/images.json').then(images => this.images = images);
 
     this.events = [
       {status: 'Mattsee', date: '15/06/2022', icon: PrimeIcons.SHIELD, color: '#9C27B0', image: 'assets/events/3_seen_tour/DJI_0231-Pano-2.jpg'},

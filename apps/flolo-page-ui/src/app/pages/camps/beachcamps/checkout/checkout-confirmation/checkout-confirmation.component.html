@@ -1,0 +1,54 @@
+<div class="surface-card p-4 mt-4 shadow-2 border-round">
+  <div class="event-checkout-confirmation">
+    <div class="grid">
+      <div class="col">Camp</div>
+      <div class="col">{{eventData.event.name}}</div>
+    </div>
+
+    <div class="grid">
+      <div class="col">Location</div>
+      <div class="col">{{eventData.event.location}}</div>
+    </div>
+
+    <div class="grid">
+      <div class="col">Datum</div>
+      <div class="col">
+        {{eventData.event.startDate | date: 'dd/MM/yyyy'}} - {{eventData.event.endDate | date: 'dd/MM/yyyy'}}
+      </div>
+    </div>
+
+    <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+
+    <div class="grid">
+      <div class="col">Vorname</div>
+      <div class="col">{{personalData.firstName}}</div>
+    </div>
+
+    <div class="grid">
+      <div class="col">Nachname</div>
+      <div class="col">{{personalData.lastName}}</div>
+    </div>
+
+    <div class="grid">
+      <div class="col">E-Mail</div>
+      <div class="col">{{personalData.email}}</div>
+    </div>
+
+    <div class="grid">
+      <div class="col">Anmerkungen</div>
+      <div class="col">{{personalData.comment}}</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="col-6 flex justify-content-start">
+      <button pButton pRipple type="button" label="Zurück" icon="pi pi-angle-left" iconPos="left"
+              class="p-button-rounded" (click)="previousPage()"></button>
+    </div>
+
+    <div class="col-6 flex justify-content-end">
+      <button pButton pRipple type="button" label="Absenden" icon="pi pi-angle-right" iconPos="right"
+              class="p-button-rounded p-button-success" (click)="send()"></button>
+    </div>
+  </div>
+</div>

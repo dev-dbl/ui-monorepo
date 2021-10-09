@@ -1,0 +1,105 @@
+<div class="surface-card p-4 mt-4 shadow-2 border-round">
+  <div class="grid formgrid p-fluid">
+
+    <div class="field mb-4 col-12">
+      <label class="font-medium" for="firstname">Vorname</label>
+      <input #firstName="ngModel" id="firstname" pinputtext="" type="text" required class="p-inputtext p-component"
+             [ngClass]="{'ng-dirty': (firstName.invalid && isSubmitted) || (firstName.dirty && firstName.invalid)}"
+             [(ngModel)]="personalData.firstName">
+
+      <label class="font-medium pt-2" for="lastname">Nachname</label>
+      <input id="lastname" pinputtext="" type="text" class="p-inputtext p-component"
+             [(ngModel)]="personalData.lastName">
+    </div>
+
+    <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+
+    <div class="field mb-4 col-12 md:col-6">
+      <label class="font-medium" for="email">Email</label>
+      <input id="email" pinputtext="" type="text" class="p-inputtext p-component"
+             [(ngModel)]="personalData.email">
+    </div>
+
+    <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+
+    <div class="field mb-4 col-12 md:col-6">
+      <label class="font-medium" for="bio">Bio</label>
+      <textarea id="bio" pinputtextarea="" rows="5" type="text"
+                class="p-inputtextarea p-inputtext p-component p-inputtextarea-resizable"
+                style="height: 106px; overflow: hidden;"
+                [(ngModel)]="personalData.comment"></textarea>
+
+      <div class="flex align-items-center">
+        <p-inputSwitch>
+          <div class="p-inputswitch p-component">
+            <div class="p-hidden-accessible">
+              <input role="switch" type="checkbox" aria-checked="false">
+            </div>
+            <span class="p-inputswitch-slider"></span>
+          </div>
+        </p-inputSwitch>
+        <span class="ml-2">Ich habe bereits in der Vergangenheit bei einem Camp teilgenommen.</span>
+      </div>
+    </div>
+
+    <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+
+    <div class="col-12 flex justify-content-end">
+      <button pButton pRipple type="button" label="Weiter" icon="pi pi-angle-right" iconPos="right"
+              class="p-button-rounded w-auto mt-3" (click)="nextPage()"></button>
+    </div>
+  </div>
+</div>
+
+
+<!--<p-card *ngIf="eventData.event.name" [header]="'Anmeldung \'' + eventData.event.name + '\''">-->
+<!--  <div class="p-fluid event-checkout-personal-data">-->
+<!--    <div class="p-field">-->
+<!--      <span class="p-float-label">-->
+<!--        <input #firstName="ngModel" id="firstName" type="text" required pInputText-->
+<!--               [(ngModel)]="personalData.firstName"-->
+<!--               [ngClass]="{'ng-dirty': (firstName.invalid && isSubmitted) || (firstName.dirty && firstName.invalid)}">-->
+<!--        <label for="firstName">Vorname</label>-->
+<!--        <small *ngIf="(firstName.invalid && isSubmitted) || (firstName.dirty && firstName.invalid)" class="p-error">Vorname ist verpflichtend</small>-->
+<!--      </span>-->
+<!--    </div>-->
+
+<!--    <div class="p-field">-->
+<!--      <span class="p-float-label">-->
+<!--        <input #lastName="ngModel" id="lastName" type="text" required pInputText-->
+<!--               [(ngModel)]="personalData.lastName"-->
+<!--               [ngClass]="{'ng-dirty': (lastName.invalid && isSubmitted) || (lastName.dirty && lastName.invalid)}">-->
+<!--        <label for="lastName">Nachname</label>-->
+<!--        <small *ngIf="(lastName.invalid && isSubmitted) || (lastName.dirty && lastName.invalid)" class="p-error">Nachname ist verpflichtend</small>-->
+<!--      </span>-->
+<!--    </div>-->
+
+<!--    <div class="p-field">-->
+<!--      <span class="p-float-label">-->
+<!--        <input #email="ngModel" id="email" type="text" required pInputText pKeyFilter="email"-->
+<!--               [(ngModel)]="personalData.email"-->
+<!--               [ngClass]="{'ng-dirty': (email.invalid && isSubmitted) || (email.dirty && email.invalid)}">-->
+<!--        <label for="email">E-Mail</label>-->
+<!--        <small *ngIf="(email.invalid && isSubmitted) || (email.dirty && email.invalid)" class="p-error">E-Mail ist verpflichtend</small>-->
+<!--        &lt;!&ndash;        <small *ngIf="email.dirty && email.invalid" class="p-error">E-Mail ist nicht valide.</small>&ndash;&gt;-->
+<!--        &lt;!&ndash;          <p-message severity="error" text="Not a valid email" [@errorState]="email.dirty ? 'visible' : 'hidden'"></p-message>&ndash;&gt;-->
+<!--      </span>-->
+<!--    </div>-->
+
+<!--    <div class="p-field">-->
+<!--      <span class="p-float-label">-->
+<!--        <textarea #comment="ngModel" id="comment" pInputTextarea-->
+<!--                  [(ngModel)]="personalData.comment"-->
+<!--                  [ngClass]="{'ng-dirty': (comment.invalid && isSubmitted) || (comment.dirty && comment.invalid)}"-->
+<!--                  [autoResize]="true" rows="5"-->
+<!--                  cols="30"></textarea>-->
+<!--        <label for="comment">Anmerkungen</label>-->
+<!--      </span>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="grid p-nogutter p-justify-end">-->
+<!--    <button pButton pRipple type="button" label="Weiter" icon="pi pi-angle-right" iconPos="right"-->
+<!--            class="p-button-rounded" (click)="nextPage()"></button>-->
+<!--  </div>-->
+<!--</p-card>-->

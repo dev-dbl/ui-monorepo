@@ -1,20 +1,27 @@
 <!--<flpu-events-list></flpu-events-list>-->
 <div class="flpu-home">
 
-  <div class="bg-white p-4">
-    <span style="font-size: 50px; text-align: center;">Flo & Lo @ the Beach</span>
+  <div class="surface-section bg-white shadow-2 py-0 align-items-center">
+    <p-galleria [value]="images" [containerStyle]="{'max-width': '100%', 'text-align': 'center'}"
+                [autoPlay]="true" [transitionInterval]="5000"
+                [circular]="true" [showItemNavigators]="true" [showThumbnails]="false"
+                [showIndicators]="true" [showItemNavigatorsOnHover]="true" [showIndicatorsOnItem]="true">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.previewImageSrc" style="width: 100%; display: block;" [alt]="item.alt" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+      </ng-template>
+    </p-galleria>
   </div>
 
-  <img alt="Image" class="block mx-auto w-full" src="assets/social/DSC03425.jpg">
+  <div class="grid bg-bluegray-50 pt-2">
 
-  <div class="grid bg-bluegray-50">
-
-    <div class="col-4 lg:col-4">
+    <div class="col-4 pt-2 pl-2 pr-1">
       <a class="cursor-pointer no-underline text-gray-900" routerLink="3-seen-tour">
-      <div class="p-3 h-full">
-        <div class="shadow-2 p-3 h-full flex flex-column" style="border-radius: 6px">
-          <div class="font-bold text-xl md:text-5xl mb-2">Silberpfeil</div>
-          <div class="fond-medium text-l md:text-3xl">3-Seen-Tour</div>
+      <div class="p-1 h-full">
+        <div class="shadow-2 p-1 h-full flex flex-column" style="border-radius: 6px">
+          <div class="font-bold text-sm sm:text-2xl md:text-3xl lg:text-5xl mb-2">Silberpfeil</div>
+          <div class="fond-medium text-xs sm:text-xl md:text-2xl lg:text-3xl">3-Seen-Tour</div>
           <div class="mt-2">
             <img alt="Card" src="assets/landing-page/pages/3_seen.jpg" style="max-width: 100%">
 
@@ -24,12 +31,12 @@
       </a>
     </div>
 
-    <div class="col-4 lg:col-4">
+    <div class="col-4 pt-2 pl-0 pr-1">
       <a class="cursor-pointer no-underline text-gray-900" routerLink="beachcamps">
-        <div class="p-3 h-full">
-          <div class="shadow-2 p-3 h-full flex flex-column" style="border-radius: 6px">
-            <div class="font-bold text-xl md:text-5xl mb-2">Ateia</div>
-            <div class="fond-medium text-l md:text-3xl">Beachcamps</div>
+        <div class="p-1 h-full">
+          <div class="shadow-2 p-1 h-full flex flex-column" style="border-radius: 6px">
+            <div class="font-bold text-sm sm:text-2xl md:text-3xl lg:text-5xl mb-2">Ateia</div>
+            <div class="fond-medium text-xs sm:text-xl md:text-2xl lg:text-3xl">Beachcamps</div>
             <div class="mt-2">
               <img alt="Card" src="assets/landing-page/pages/camps.jpeg" style="max-width: 100%">
 
@@ -39,12 +46,12 @@
       </a>
     </div>
 
-    <div class="col-4 lg:col-4">
+    <div class="col-4 pt-2 pl-0 pr-2">
       <a class="cursor-pointer no-underline text-gray-900" routerLink="beachteam">
-        <div class="p-3 h-full">
-          <div class="shadow-2 p-3 h-full flex flex-column" style="border-radius: 6px">
-            <div class="font-bold text-xl md:text-5xl mb-2">Naturtalente</div>
-            <div class="fond-medium text-l md:text-3xl">Beachteam</div>
+        <div class="p-1 h-full">
+          <div class="shadow-2 p-1 h-full flex flex-column" style="border-radius: 6px">
+            <div class="font-bold text-sm sm:text-2xl md:text-3xl lg:text-5xl mb-2">Naturtalente</div>
+            <div class="fond-medium text-xs sm:text-xl md:text-2xl lg:text-3xl">Beachteam</div>
             <div class="mt-2">
               <img alt="Card" src="assets/landing-page/pages/team.jpeg" style="max-width: 100%">
 

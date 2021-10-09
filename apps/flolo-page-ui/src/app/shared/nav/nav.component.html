@@ -1,37 +1,38 @@
 
-<div class="nav-bar bg-gray-900 surface-overlay py-3 px-6 shadow-2 flex align-items-center justify-content-between relative lg:static">
-  <a class="cursor-pointer block lg:hidden text-700"
-     (click)="toggleNavBar()">
+<div class="nav-bar bg-bluegray-200 surface-overlay py-4 px-6 shadow-2 flex align-items-center justify-content-between relative">
+  <span class="text-gray-900 font-bold text-2xl md:text-5xl lg:text-9xl">Flo & Lo @ the Beach</span>
+
+  <a class="cursor-pointer block text-700" (click)="toggleNavBar()">
     <i class="pi pi-bars text-4xl"></i>
   </a>
-  <div id="navLinks" class="bg-gray-900 align-items-center flex-grow-1 justify-content-between lg:flex absolute lg:static w-full surface-overlay left-0 top-100 px-6 lg:px-0 z-2 shadow-2 lg:shadow-none hidden">
+  <div id="navLinks" class="bg-bluegray-200 align-items-center flex-grow-1 justify-content-between absolute w-full surface-overlay left-0 top-100 px-6 z-2 shadow-2 hidden">
     <section></section>
     <ul
-      class="list-none p-0 m-0 flex lg:align-items-center text-white select-none flex-column lg:flex-row cursor-pointer">
+      class="list-none p-0 m-0 flex text-gray-900 select-none flex-column cursor-pointer">
       <li class="relative">
-        <a class="flex px-0 lg:px-5 py-3 cursor-pointer no-underline text-white hover:text-blue-600 font-bold transition-colors transition-duration-150"
-        enteractiveclass="scalein" enterclass="hidden" leaveactiveclass="fadeout" leavetoclass="hidden" pstyleclass="@next"
-        routerLink="3-seen-tour">
-          Silberpfeil 3-Seen-Tour
+        <a class="flex px-0 py-3 cursor-pointer no-underline text-gray-900 hover:text-blue-600 transition-colors transition-duration-150"
+           (click)="toggleNavBar()" routerLink="3-seen-tour">
+          <span class="text-gray-900 text-xl md:text-2xl lg:text-3xl">Silberpfeil 3-Seen-Tour</span>
         </a>
       </li>
       <li>
-        <a class="flex px-0 lg:px-5 py-3 cursor-pointer no-underline text-white hover:text-blue-600 font-bold transition-colors transition-duration-150">
-          Ateia Beachcamps
+        <a class="flex px-0 py-3 cursor-pointer no-underline text-gray-900 hover:text-blue-600 transition-colors transition-duration-150"
+           (click)="toggleNavBar()" routerLink="beachcamps">
+          <span class="text-gray-900 text-xl md:text-2xl lg:text-3xl">Ateia Beachcamps</span>
         </a>
       </li>
       <li>
-        <a class="flex px-0 lg:px-5 py-3 cursor-pointer no-underline text-white hover:text-blue-600 font-bold transition-colors transition-duration-150"
-           routerLink="beachteam">
-          Naturtalente Beachteam
+        <a class="flex px-0 py-3 cursor-pointer no-underline text-gray-900 hover:text-blue-600 transition-colors transition-duration-150"
+           (click)="toggleNavBar()" routerLink="beachteam">
+          <span class="text-gray-900 text-xl md:text-2xl lg:text-3xl">Naturtalente Beachteam</span>
         </a>
       </li>
     </ul>
-    <div class="flex justify-content-between lg:block py-2 mt-0">
+<!--    <div class="flex justify-content-between py-2 mt-0">-->
 <!--      <button class="p-button-text font-bold p-ripple p-button p-component" label="Login" pbutton="" pripple=""><span-->
 <!--        class="p-button-label">Login</span><span class="p-ink"></span></button>-->
 <!--      <button class="ml-3 p-button-outlined font-bold p-ripple p-button p-component" label="Register" pbutton=""-->
 <!--              pripple=""><span class="p-button-label">Register</span><span class="p-ink"></span></button>-->
-    </div>
+<!--    </div>-->
   </div>
 </div>

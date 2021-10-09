@@ -45,8 +45,8 @@ export class EventsService {
     return this.http.put<EventRegistration>(`${this.apiUrlEvents}/registration/${eventRegistration.id}`, eventRegistration);
   }
 
-  getImages() {
-    return this.http.get<any>('assets/events/3_seen_tour/images.json')
+  getImages(url: string) {
+    return this.http.get<any>(url)
       .toPromise()
       .then(res => res.data)
       .then(data => { return data; });

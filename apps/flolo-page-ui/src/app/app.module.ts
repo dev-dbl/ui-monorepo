@@ -38,14 +38,18 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { MessageModule } from 'primeng/message';
 import { SponsorsService } from '@dbl-dev/sponsors';
 import { GalleriaModule } from 'primeng/galleria';
-import { CampDetailsComponent } from './pages/camps/camp-details/camp-details.component';
 import { ContactFormComponent } from './pages/general/contact-form/contact-form.component';
 import { FaqComponent } from './pages/general/faq/faq.component';
 import { BeachteamComponent } from './pages/general/beachteam/beachteam.component';
 import { DreiSeenTourComponent } from './pages/camps/drei-seen-tour/drei-seen-tour.component';
+import { BeachcampsComponent } from './pages/camps/beachcamps/beachcamps.component';
+import { CheckoutComponent } from './pages/camps/beachcamps/checkout/checkout.component';
+import { CheckoutPersonDataComponent } from './pages/camps/beachcamps/checkout/checkout-person-data/checkout-person-data.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { CheckoutConfirmationComponent } from './pages/camps/beachcamps/checkout/checkout-confirmation/checkout-confirmation.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, CampDetailsComponent, ContactFormComponent, FaqComponent, BeachteamComponent, DreiSeenTourComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, ContactFormComponent, FaqComponent, BeachteamComponent, DreiSeenTourComponent, BeachcampsComponent, CheckoutComponent, CheckoutPersonDataComponent, CheckoutConfirmationComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -70,7 +74,8 @@ import { DreiSeenTourComponent } from './pages/camps/drei-seen-tour/drei-seen-to
     StepsModule,
     KeyFilterModule,
     MessageModule,
-    GalleriaModule
+    GalleriaModule,
+    InputSwitchModule
   ],
   providers: [EventsService, SponsorsService, MessageService, EventCheckoutService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

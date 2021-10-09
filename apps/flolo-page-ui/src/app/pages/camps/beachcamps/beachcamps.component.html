@@ -1,0 +1,152 @@
+<div class="grid grid-nogutter surface-section text-800">
+<!--  <div class="col-12 md:col-6 overflow-hidden">-->
+<!--    <img alt="Image" class="md:ml-auto block md:h-full" src="assets/social/DSC03425.jpg" style="width:100%">-->
+<!--  </div>-->
+
+  <div class="col-12 md:col-6 overflow-hidden surface-section bg-white py-0 align-items-center">
+    <p-galleria [value]="images" [containerStyle]="{'max-width': '100%', 'text-align': 'center'}"
+                [autoPlay]="true" [transitionInterval]="5000"
+                [circular]="true" [showItemNavigators]="true" [showThumbnails]="false"
+                [showIndicators]="true" [showItemNavigatorsOnHover]="true" [showIndicatorsOnItem]="true">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.previewImageSrc" style="width: 100%; display: block;" [alt]="item.alt" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+      </ng-template>
+    </p-galleria>
+  </div>
+
+  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+    <section>
+      <span class="block text-6xl font-bold mb-1">Beachcamps mit Flo & Lo</span>
+      <div class="text-6xl text-primary font-bold mb-3">Trainieren mit den Profis</div>
+      <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      <button pButton pRipple label="Anmelden" type="button" class="p-button-raised"></button>
+    </section>
+  </div>
+</div>
+
+<div>
+  some text here
+</div>
+
+<div class="surface-section bg-gray-100 py-4 text-center">
+  <div class="mb-3 font-bold text-2xl">
+    <span class="text-900">Beachvolleyball, </span>
+    <span class="text-blue-600">And Friends</span>
+  </div>
+  <div class="text-700 text-sm mb-6">Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna.</div>
+  <div class="grid">
+    <div class="col-12 md:col-4 mb-4 px-5">
+            <span class="bg-white p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="pi pi-eye text-4xl text-blue-500"></i>
+            </span>
+      <div class="text-900 mb-3 font-medium">Individueller Fokus</div>
+      <span class="text-700 text-sm line-height-3">Pro Gruppe gibt es max. 8 Teilnehmer.</span>
+    </div>
+    <div class="col-12 md:col-4 mb-4 px-5">
+            <span class="bg-white p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="pi pi-globe text-4xl text-blue-500"></i>
+            </span>
+      <div class="text-900 mb-3 font-medium">Professionelle Trainer</div>
+      <span class="text-700 text-sm line-height-3">Lenrt von den Profis. Unser Trainerteam besteht aus aktiven Spielern auf nationaler und internationaler Tour.</span>
+    </div>
+    <div class="col-12 md:col-4 mb-4 px-5">
+            <span class="bg-white p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="pi pi-check-circle text-4xl text-blue-500"></i>
+            </span>
+      <div class="text-900 mb-3 font-medium">Unkompliziert</div>
+      <span class="text-700 text-sm line-height-3">Wir legen Wert auf die einfachste Abwicklung und optimale Lösungen für alle.</span>
+    </div>
+    <div class="col-12 md:col-4 mb-4 px-5">
+            <span class="bg-white p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="pi pi-users text-4xl text-blue-500"></i>
+            </span>
+      <div class="text-900 mb-3 font-medium">Beach with Friends</div>
+      <span class="text-700 text-sm line-height-3">Freundliches Miteinander und diverse Side-Aktivitäten sind bei uns immer zu finden.</span>
+    </div>
+    <div class="col-12 md:col-4 mb-4 px-5">
+            <span class="bg-white p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="pi pi-euro text-4xl text-blue-500"></i>
+            </span>
+      <div class="text-900 mb-3 font-medium">Preis/Leistung</div>
+      <span class="text-700 text-sm line-height-3">Bestes Training zu einem fairen Preis.</span>
+    </div>
+    <div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
+            <span class="bg-white p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="pi pi-replay text-4xl text-blue-500"></i>
+            </span>
+      <div class="text-900 mb-3 font-medium">Keine Langeweile</div>
+      <span class="text-700 text-sm line-height-3">Jede Trainigseinheit bietet individuelle Schwerpunkte, sodass man immer ein Stück besser werden kann.</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="px-4 py-4 md:px-6 lg:px-8 ng-star-inserted">
+  <div class="mb-4 font-bold text-2xl text-center">
+    <span class="text-900">Termine</span>
+  </div>
+
+  <div>
+    <div *ngFor="let camp of camps" class="mb-5 flex">
+      <div class="flex flex-column align-items-center" style="width:2rem">
+        <span class="bg-blue-500 text-0 flex align-items-center justify-content-center border-circle"
+              style="min-width:2.5rem; min-height: 2.5rem">
+          <i class="pi pi-users"></i>
+        </span>
+        <div class="h-full bg-blue-500" style="width: 2px; min-height: 4rem"></div>
+      </div>
+      <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
+        <div class="mb-1">
+          <span class="text-900 font-medium inline-block mr-3">{{camp.name}}</span>
+          <span class="text-500 text-sm">{{camp.location}}</span>
+        </div>
+        <div class="mb-3">
+          <span class="text-500 text-sm">{{camp.startDate | date:'dd/MM/yyyy'}} - {{camp.endDate | date:'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="line-height-3 text-700 mb-3">
+          <span [innerHTML]="camp.description"></span>
+        </div>
+        <div class="text-500 flex align-items-center justify-content-between">
+<!--          <span [class]="'product-badge status-' + camp.status.toLowerCase()">{{camp.status}}</span>-->
+
+          {{camp.status}}
+          <p-tag value="Plätze verfügbar" severity="success" [rounded]="true"></p-tag>
+
+          <button pButton pRipple label="Anmelden" type="button" class="p-button-raised"
+                  [routerLink]="'checkout/' + camp.id"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="card">-->
+<!--  <p-table responsiveLayout="stack" [value]="camps">-->
+<!--    <ng-template pTemplate="caption">-->
+<!--      Termine-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="header" let-columns>-->
+<!--      <tr>-->
+<!--        <th>Camp</th>-->
+<!--        <th>Ort</th>-->
+<!--        <th>Termin</th>-->
+<!--        <th>Preis</th>-->
+<!--        <th>Status</th>-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="body" let-camp let-columns="columns">-->
+<!--      <tr>-->
+<!--        <td>{{camp.name}}</td>-->
+<!--        <td>{{camp.location}}</td>-->
+<!--        <td>{{camp.startDate}} - {{camp.endDate}}</td>-->
+<!--        <td>{{camp.price | currency:'EUR'}}</td>-->
+<!--        <td><span [class]="'product-badge status-' + (camp.status ? camp.status.toLowerCase() : '')">{{camp.status}}</span></td>-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--  </p-table>-->
+<!--</div>-->
+

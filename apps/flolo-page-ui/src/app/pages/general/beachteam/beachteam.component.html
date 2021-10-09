@@ -1,3 +1,23 @@
+<p-carousel [value]="sponsors" styleClass="custom-carousel" [numVisible]="3"
+            [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
+            [responsiveOptions]="responsiveOptions"
+            [showIndicators]="false" [showNavigators]="false">
+
+  <ng-template let-sponsor pTemplate="item">
+    <div class="sponsor-item">
+      <div class="sponsor-item-content">
+        <div class="p-mb-3">
+          <img src="assets/sponsors/{{sponsor.image}}" style="max-height: 50px;" [alt]="sponsor.name" class="sponsor-image" />
+        </div>
+<!--        <div>-->
+<!--          <h4 class="p-mb-1">{{sponsor.name}}</h4>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
+
+
 <div class="bg-gray-100 px-4 py-4 md:px-6 lg:px-8">
   <div class="text-center font-bold text-900 text-5xl mb-3">Naturtalente Beachteam</div>
 <!--  <div class="text-center text-xl line-height-3 text-600 mb-6">-->
@@ -8,7 +28,7 @@
     <div class="grid justify-content-center">
 
       <div class="col-12 md:col-5 shadow-2 p-4 mt-5 mb-5 lg:mb-0 mr-0 lg:mr-5 surface-card">
-        <img class="mb-3 w-full" src="assets/social/Lo.jpg">
+        <img class="mb-3 w-full" src="assets/beachteam/FAD37B7C-8682-4F28-9BDE-764F6DA1AC78.jpeg">
         <div class="flex justify-content-between align-items-center">
           <div class="pr-3">
             <div class="text-xl text-900 font-medium mb-2">Lorenz Petutschnig</div>
@@ -30,7 +50,7 @@
       </div>
 
       <div class="col-12 md:col-5 shadow-2 p-4 mt-5 mb-5 lg:mb-0 mr-0 lg:mr-5 surface-card">
-        <img class="mb-3 w-full" src="assets/social/Flo.jpg">
+        <img class="mb-3 w-full" src="assets/beachteam/Bildschirmfoto 2021-09-30 um 10.49.14.jpeg">
         <div class="flex justify-content-between align-items-center">
           <div class="pr-3">
             <div class="text-xl text-900 font-medium mb-2">Florian Schnetzer</div>

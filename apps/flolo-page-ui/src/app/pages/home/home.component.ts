@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@dbl-dev/users';
+import { EventsService } from '@dbl-dev/events';
+import { PrimeIcons } from 'primeng/api';
 
 @Component({
   selector: 'flpu-home',
@@ -8,14 +9,11 @@ import { AuthService } from '@dbl-dev/users';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
-  }
+  images: any;
+
+  constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
-
-  }
-
-  onLogout() {
-    this.authService.logout();
+    this.eventsService.getImages('assets/landing-page/images.json').then(images => this.images = images);
   }
 }

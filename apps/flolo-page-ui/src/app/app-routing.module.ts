@@ -7,11 +7,14 @@ import { SponsorsListComponent } from './pages/sponsors/sponsors-list/sponsors-l
 import { EventCheckoutComponent } from './pages/events/event-checkout/event-checkout.component';
 import { EventCheckoutPersonalDataComponent } from './pages/events/event-checkout/event-checkout-personal-data/event-checkout-personal-data.component';
 import { EventCheckoutConfirmationComponent } from './pages/events/event-checkout/event-checkout-confirmation/event-checkout-confirmation.component';
-import { CampDetailsComponent } from './pages/camps/camp-details/camp-details.component';
 import { ContactFormComponent } from './pages/general/contact-form/contact-form.component';
 import { FaqComponent } from './pages/general/faq/faq.component';
 import { BeachteamComponent } from './pages/general/beachteam/beachteam.component';
 import { DreiSeenTourComponent } from './pages/camps/drei-seen-tour/drei-seen-tour.component';
+import { BeachcampsComponent } from './pages/camps/beachcamps/beachcamps.component';
+import { CheckoutComponent } from './pages/camps/beachcamps/checkout/checkout.component';
+import { CheckoutPersonDataComponent } from './pages/camps/beachcamps/checkout/checkout-person-data/checkout-person-data.component';
+import { CheckoutConfirmationComponent } from './pages/camps/beachcamps/checkout/checkout-confirmation/checkout-confirmation.component';
 
 const routes: Routes = [
   {
@@ -19,12 +22,31 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'camps/details',
-    component: CampDetailsComponent
-  },
-  {
     path: '3-seen-tour',
     component: DreiSeenTourComponent
+  },
+  {
+    path: 'beachcamps',
+    component: BeachcampsComponent
+  },
+  {
+    path: 'beachcamps/checkout/:eventId',
+    component: CheckoutComponent,
+    children: [
+      {
+        path:'',
+        redirectTo: 'personal-data',
+        pathMatch: 'full'
+      },
+      {
+        path: 'personal-data',
+        component: CheckoutPersonDataComponent
+      },
+      {
+        path: 'confirmation',
+        component: CheckoutConfirmationComponent
+      }
+    ]
   },
   {
     path: 'beachteam',
