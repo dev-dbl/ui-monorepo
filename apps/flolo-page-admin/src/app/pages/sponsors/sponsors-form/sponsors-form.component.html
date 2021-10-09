@@ -1,8 +1,8 @@
 <div class="flpa-sponsors-form">
   <p-card [header]="editMode ? 'Edit Sponsor' : 'Add Sponsor'"
           [subheader]="editMode ? 'Sponsor bearbeiten' : 'Neuen Sponsor hinzufügen'">
-    <div class="p-grid p-mb-5">
-      <div class="p-col-12">
+    <div class="grid p-mb-5">
+      <div class="col-12">
         <p-toolbar>
           <div class="p-toolbar-group-left"></div>
           <div class="p-toolbar-group-right">
@@ -18,7 +18,7 @@
         </p-toolbar>
       </div>
 
-      <div class="p-col-12">
+      <div class="col-12">
         <form [formGroup]="form">
           <div class="p-fluid">
             <div class="p-field">
@@ -36,7 +36,7 @@
               <label for="image">Logo</label>
               <input id="image" type="file" accept="image/*" pInputText
                      (change)="onImageUpload($event)"/>
-              <div class="p-col-4 p-mt-2 p-pl-0">
+              <div class="col-4 p-mt-2 p-pl-0">
                 <img [src]="imagePreview" alt="" style="width: 100%" />
               </div>
 
