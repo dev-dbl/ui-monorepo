@@ -22,14 +22,15 @@
       <div class="text-6xl text-primary font-bold mb-3">Trainieren mit den Profis</div>
       <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-      <button pButton pRipple label="Anmelden" type="button" class="p-button-raised"></button>
+      <button pButton pRipple label="Anmelden" type="button" class="p-button-raised"
+              [routerLink]="'checkout/0'"></button>
     </section>
   </div>
 </div>
 
-<div>
-  some text here
-</div>
+<!--<div>-->
+<!--  some text here-->
+<!--</div>-->
 
 <div class="surface-section bg-gray-100 py-4 text-center">
   <div class="mb-3 font-bold text-2xl">
@@ -110,10 +111,11 @@
           <span [innerHTML]="camp.description"></span>
         </div>
         <div class="text-500 flex align-items-center justify-content-between">
-<!--          <span [class]="'product-badge status-' + camp.status.toLowerCase()">{{camp.status}}</span>-->
 
-          {{camp.status}}
-          <p-tag value="Plätze verfügbar" severity="success" [rounded]="true"></p-tag>
+          <p-tag [value]="campStatus[camp.status].label"
+                 [severity]="campStatus[camp.status].color"
+                 [icon]="campStatus[camp.status].icon"
+                 [rounded]="true"></p-tag>
 
           <button pButton pRipple label="Anmelden" type="button" class="p-button-raised"
                   [routerLink]="'checkout/' + camp.id"></button>
@@ -122,31 +124,3 @@
     </div>
   </div>
 </div>
-
-
-<!--<div class="card">-->
-<!--  <p-table responsiveLayout="stack" [value]="camps">-->
-<!--    <ng-template pTemplate="caption">-->
-<!--      Termine-->
-<!--    </ng-template>-->
-<!--    <ng-template pTemplate="header" let-columns>-->
-<!--      <tr>-->
-<!--        <th>Camp</th>-->
-<!--        <th>Ort</th>-->
-<!--        <th>Termin</th>-->
-<!--        <th>Preis</th>-->
-<!--        <th>Status</th>-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--    <ng-template pTemplate="body" let-camp let-columns="columns">-->
-<!--      <tr>-->
-<!--        <td>{{camp.name}}</td>-->
-<!--        <td>{{camp.location}}</td>-->
-<!--        <td>{{camp.startDate}} - {{camp.endDate}}</td>-->
-<!--        <td>{{camp.price | currency:'EUR'}}</td>-->
-<!--        <td><span [class]="'product-badge status-' + (camp.status ? camp.status.toLowerCase() : '')">{{camp.status}}</span></td>-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--  </p-table>-->
-<!--</div>-->
-

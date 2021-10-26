@@ -47,36 +47,42 @@ import { CheckoutComponent } from './pages/camps/beachcamps/checkout/checkout.co
 import { CheckoutPersonDataComponent } from './pages/camps/beachcamps/checkout/checkout-person-data/checkout-person-data.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { CheckoutConfirmationComponent } from './pages/camps/beachcamps/checkout/checkout-confirmation/checkout-confirmation.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CheckoutPaymentComponent } from './pages/camps/beachcamps/checkout/checkout-payment/checkout-payment.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { ImpressumComponent } from './pages/general/impressum/impressum.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, ContactFormComponent, FaqComponent, BeachteamComponent, DreiSeenTourComponent, BeachcampsComponent, CheckoutComponent, CheckoutPersonDataComponent, CheckoutConfirmationComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    AccordionModule,
-    CardModule,
-    HttpClientModule,
-    TableModule,
-    UsersModule,
-    ButtonModule,
-    RippleModule,
-    UiModule,
-    TimelineModule,
-    GMapModule,
-    CarouselModule,
-    TagModule,
-    FormsModule,
-    ReactiveFormsModule,
-    InputTextModule,
-    InputTextareaModule,
-    ToastModule,
-    StepsModule,
-    KeyFilterModule,
-    MessageModule,
-    GalleriaModule,
-    InputSwitchModule
-  ],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, EventsListComponent, NavComponent, EventDetailsComponent, SponsorsListComponent, EventCheckoutPersonalDataComponent, EventCheckoutComponent, EventCheckoutConfirmationComponent, ContactFormComponent, FaqComponent, BeachteamComponent, DreiSeenTourComponent, BeachcampsComponent, CheckoutComponent, CheckoutPersonDataComponent, CheckoutConfirmationComponent, CheckoutPaymentComponent, ImpressumComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        AccordionModule,
+        CardModule,
+        HttpClientModule,
+        TableModule,
+        UsersModule,
+        ButtonModule,
+        RippleModule,
+        UiModule,
+        TimelineModule,
+        GMapModule,
+        CarouselModule,
+        TagModule,
+        FormsModule,
+        ReactiveFormsModule,
+        InputTextModule,
+        InputTextareaModule,
+        ToastModule,
+        StepsModule,
+        KeyFilterModule,
+        MessageModule,
+        GalleriaModule,
+        InputSwitchModule,
+        NgxPayPalModule,
+        DropdownModule
+    ],
   providers: [EventsService, SponsorsService, MessageService, EventCheckoutService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]

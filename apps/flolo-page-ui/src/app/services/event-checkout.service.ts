@@ -15,7 +15,8 @@ export class EventCheckoutService {
       firstName: '',
       lastName: '',
       email: '',
-      comment: null
+      comment: null,
+      previousParticipant: false
     }
   };
 

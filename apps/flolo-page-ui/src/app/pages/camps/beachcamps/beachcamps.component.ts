@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Event, EventsService } from '@dbl-dev/events';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { EVENT_STATUS } from '../../../../../../../libs/events/src/lib/models/event.constants';
 
 @Component({
   selector: 'flpu-beachcamps',
@@ -13,6 +14,7 @@ export class BeachcampsComponent implements OnInit, OnDestroy {
   endSubs$: Subject<any> = new Subject();
   images: any;
   camps: Event[] = [];
+  campStatus = EVENT_STATUS;
 
   constructor(private eventsService: EventsService) {}
 

@@ -27,6 +27,10 @@ export class CheckoutComponent implements OnInit {
         label: 'Daten',
         routerLink: 'personal-data'
       },
+      // {
+      //   label: 'Zahlung',
+      //   routerLink: 'payment'
+      // },
       {
         label: 'Bestätigung',
         routerLink: 'confirmation'

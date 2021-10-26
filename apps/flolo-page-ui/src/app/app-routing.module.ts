@@ -15,6 +15,8 @@ import { BeachcampsComponent } from './pages/camps/beachcamps/beachcamps.compone
 import { CheckoutComponent } from './pages/camps/beachcamps/checkout/checkout.component';
 import { CheckoutPersonDataComponent } from './pages/camps/beachcamps/checkout/checkout-person-data/checkout-person-data.component';
 import { CheckoutConfirmationComponent } from './pages/camps/beachcamps/checkout/checkout-confirmation/checkout-confirmation.component';
+import { CheckoutPaymentComponent } from './pages/camps/beachcamps/checkout/checkout-payment/checkout-payment.component';
+import { ImpressumComponent } from './pages/general/impressum/impressum.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,10 @@ const routes: Routes = [
         component: CheckoutPersonDataComponent
       },
       {
+        path: 'payment',
+        component: CheckoutPaymentComponent
+      },
+      {
         path: 'confirmation',
         component: CheckoutConfirmationComponent
       }
@@ -59,6 +65,10 @@ const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent
+  },
+  {
+    path: 'impressum',
+    component: ImpressumComponent
   }
   // {
   //   path: 'camps',
@@ -99,7 +109,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

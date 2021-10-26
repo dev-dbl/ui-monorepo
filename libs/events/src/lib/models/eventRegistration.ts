@@ -5,5 +5,6 @@ export class EventRegistration {
   lastName: string;
   email: string;
   comment?: string;
+  previousParticipant: false;
   status: number;
 }

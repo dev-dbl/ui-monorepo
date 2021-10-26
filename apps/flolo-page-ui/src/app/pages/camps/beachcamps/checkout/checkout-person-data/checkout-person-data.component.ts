@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventCheckoutService } from '../../../../../services/event-checkout.service';
-import { EventsService } from '@dbl-dev/events';
+import { Event, EventsService } from '@dbl-dev/events';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'flpu-checkout-person-data',
@@ -14,8 +15,8 @@ export class CheckoutPersonDataComponent implements OnInit {
   isSubmitted = false;
   personalData: any;
   eventData: any;
-  // event: Event;
-  // eventId = '';
+  camps: Event[];
+  campSelected = false;
   endSubs$: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, private router: Router, private eventCheckoutService: EventCheckoutService, private eventsService: EventsService) { }
@@ -23,6 +24,12 @@ export class CheckoutPersonDataComponent implements OnInit {
   ngOnInit(): void {
     this.personalData = this.eventCheckoutService.getCheckoutInformation().personalData;
     this.eventData = this.eventCheckoutService.getCheckoutInformation().eventData;
+    if (this.eventData.event.id) {
+      this.campSelected = true;
+    } else {
+      this.campSelected = false;
+      this._loadCamps();
+    }
   }
 
   ngOnDestroy(): void {
@@ -30,10 +37,16 @@ export class CheckoutPersonDataComponent implements OnInit {
     this.endSubs$.complete();
   }
 
+  _loadCamps(): void {
+    this.eventsService.getEvents().pipe(takeUntil(this.endSubs$)).subscribe(resEvents => {
+      this.camps = resEvents;
+    });
+  }
+
   nextPage() {
-    // if (this.personalData.firstName && this.personalData.lastName && this.personalData.email) {
-    if (this.personalData.firstName) {
+    if (this.eventData.event.id && this.personalData.firstName && this.personalData.lastName && this.personalData.email) {
       this.eventCheckoutService.checkoutInformation.personalData = this.personalData;
+      // this.router.navigate([`beachcamps/checkout/${this.eventData.event.id}/payment`]);
       this.router.navigate([`beachcamps/checkout/${this.eventData.event.id}/confirmation`]);
 
       return;
