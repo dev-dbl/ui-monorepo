@@ -9,5 +9,7 @@ module.exports = {
     "<rootDir>/apps/eatit",
     "<rootDir>/libs/products",
     "<rootDir>/libs/orders",
+    "<rootDir>/apps/services-eval-ui",
+    "<rootDir>/libs/services-statistics",
   ],
 };

@@ -54,6 +54,16 @@
     "products": {
       "tags": []
     },
+    "services-eval-ui": {
+      "tags": []
+    },
+    "services-eval-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["services-eval-ui"]
+    },
+    "services-statistics": {
+      "tags": []
+    },
     "sponsors": {
       "tags": []
     },

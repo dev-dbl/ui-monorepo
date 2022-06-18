@@ -9,9 +9,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/eatit",
             "index": "apps/eatit/src/index.html",
@@ -19,13 +17,8 @@
             "polyfills": "apps/eatit/src/polyfills.ts",
             "tsConfig": "apps/eatit/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/eatit/src/favicon.ico",
-              "apps/eatit/src/assets"
-            ],
-            "styles": [
-              "apps/eatit/src/styles.scss"
-            ],
+            "assets": ["apps/eatit/src/favicon.ico", "apps/eatit/src/assets"],
+            "styles": ["apps/eatit/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -90,9 +83,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/eatit"
-          ],
+          "outputs": ["coverage/apps/eatit"],
           "options": {
             "jestConfig": "apps/eatit/jest.config.js",
             "passWithNoTests": true
@@ -121,9 +112,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/eatit-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/eatit-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -136,9 +125,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/flolo-page-admin",
             "index": "apps/flolo-page-admin/src/index.html",
@@ -150,12 +137,8 @@
               "apps/flolo-page-admin/src/favicon.ico",
               "apps/flolo-page-admin/src/assets"
             ],
-            "styles": [
-              "apps/flolo-page-admin/src/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/quill/dist/quill.js"
-            ]
+            "styles": ["apps/flolo-page-admin/src/styles.scss"],
+            "scripts": ["node_modules/quill/dist/quill.js"]
           },
           "configurations": {
             "production": {
@@ -219,9 +202,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/flolo-page-admin"
-          ],
+          "outputs": ["coverage/apps/flolo-page-admin"],
           "options": {
             "jestConfig": "apps/flolo-page-admin/jest.config.js",
             "passWithNoTests": true
@@ -250,9 +231,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/flolo-page-admin-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/flolo-page-admin-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -265,9 +244,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/flolo-page-ui",
             "index": "apps/flolo-page-ui/src/index.html",
@@ -279,9 +256,7 @@
               "apps/flolo-page-ui/src/favicon.ico",
               "apps/flolo-page-ui/src/assets"
             ],
-            "styles": [
-              "apps/flolo-page-ui/src/styles.scss"
-            ],
+            "styles": ["apps/flolo-page-ui/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -346,9 +321,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/flolo-page-ui"
-          ],
+          "outputs": ["coverage/apps/flolo-page-ui"],
           "options": {
             "jestConfig": "apps/flolo-page-ui/jest.config.js",
             "passWithNoTests": true
@@ -381,9 +354,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/flolo-page-ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/flolo-page-ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -396,16 +367,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/orders/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/orders/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/orders"
-          ],
+          "outputs": ["coverage/libs/orders"],
           "options": {
             "jestConfig": "libs/orders/jest.config.js",
             "passWithNoTests": true
@@ -421,18 +388,154 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
+            "lintFilePatterns": ["libs/products/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/products"],
+          "options": {
+            "jestConfig": "libs/products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "services-eval-ui": {
+      "projectType": "application",
+      "root": "apps/services-eval-ui",
+      "sourceRoot": "apps/services-eval-ui/src",
+      "prefix": "dbl-dev",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/services-eval-ui",
+            "index": "apps/services-eval-ui/src/index.html",
+            "main": "apps/services-eval-ui/src/main.ts",
+            "polyfills": "apps/services-eval-ui/src/polyfills.ts",
+            "tsConfig": "apps/services-eval-ui/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/services-eval-ui/src/favicon.ico",
+              "apps/services-eval-ui/src/assets"
+            ],
+            "styles": ["apps/services-eval-ui/src/styles.scss"],
+            "scripts": ["node_modules/quill/dist/quill.js"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/services-eval-ui/src/environments/environment.ts",
+                  "with": "apps/services-eval-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "services-eval-ui:build:production"
+            },
+            "development": {
+              "browserTarget": "services-eval-ui:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "services-eval-ui:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
             "lintFilePatterns": [
-              "libs/products/**/*.ts"
+              "apps/services-eval-ui/src/**/*.ts",
+              "apps/services-eval-ui/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/products"
-          ],
+          "outputs": ["coverage/apps/services-eval-ui"],
           "options": {
-            "jestConfig": "libs/products/jest.config.js",
+            "jestConfig": "apps/services-eval-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "services-eval-ui-e2e": {
+      "root": "apps/services-eval-ui-e2e",
+      "sourceRoot": "apps/services-eval-ui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/services-eval-ui-e2e/cypress.json",
+            "tsConfig": "apps/services-eval-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "services-eval-ui:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "services-eval-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/services-eval-ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "services-statistics": {
+      "root": "libs/services-statistics",
+      "sourceRoot": "libs/services-statistics/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/services-statistics/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/services-statistics"],
+          "options": {
+            "jestConfig": "libs/services-statistics/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -446,16 +549,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/sponsors/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/sponsors/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/sponsors"
-          ],
+          "outputs": ["coverage/libs/sponsors"],
           "options": {
             "jestConfig": "libs/sponsors/jest.config.js",
             "passWithNoTests": true
@@ -471,16 +570,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/ui/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui"
-          ],
+          "outputs": ["coverage/libs/ui"],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
@@ -496,16 +591,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/users/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/users/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/users"
-          ],
+          "outputs": ["coverage/libs/users"],
           "options": {
             "jestConfig": "libs/users/jest.config.js",
             "passWithNoTests": true

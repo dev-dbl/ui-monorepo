@@ -4,7 +4,7 @@ import { Event, EventRegistration, EventsService } from '@dbl-dev/events';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CAMPS_REGISTRATIONS_STATUS } from '../camps-registrations.constants';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'flpa-camps-registrations',
@@ -18,7 +18,7 @@ export class CampsRegistrationsComponent implements OnInit, OnDestroy {
   registrationsStatus = CAMPS_REGISTRATIONS_STATUS;
   endSubs$: Subject<any> = new Subject();
 
-  constructor(private route: ActivatedRoute, private eventsService: EventsService, private messageService: MessageService) { }
+  constructor(private route: ActivatedRoute, private eventsService: EventsService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -46,11 +46,11 @@ export class CampsRegistrationsComponent implements OnInit, OnDestroy {
     this.eventsService.editEventRegistration(registration).subscribe(() => {
         this._getCamp(registration.event);
 
-        // this.messageService.add({
-        //   severity: 'success',
-        //   summary: 'Erfolgreich',
-        //   detail: 'Camp wurde gelöscht'
-        // });
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Erfolgreich',
+          detail: 'Registrierung gespeichert'
+        });
       },
       () => {
         this.messageService.add({
@@ -61,18 +61,22 @@ export class CampsRegistrationsComponent implements OnInit, OnDestroy {
       })
   }
 
-  acceptRegistration(registration: EventRegistration) {
-    registration.status = 1;
-    this._editRegistration(registration);
+  getCurrentParticipants() {
+    return this.registrations.filter(reg => reg.status === 1 || reg.status === 3);
   }
 
-  reopenRegistration(registration: EventRegistration) {
-    registration.status = 0;
-    this._editRegistration(registration);
-  }
-
-  rejectRegistration(registration: EventRegistration) {
-    registration.status = 2;
-    this._editRegistration(registration);
+  changeStatus(registration: EventRegistration, regStatus: number) {
+    const message = 'Soll die Registrierung von ' + registration.firstName + ' ' + registration.lastName + ' in den Status ' + this.registrationsStatus[regStatus].label + ' geändert werden?';
+    this.confirmationService.confirm({
+      message: message,
+      header: 'Bestätigung',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        registration.status = regStatus;
+        this._editRegistration(registration);
+      },
+      reject: () => {
+      }
+    });
   }
 }

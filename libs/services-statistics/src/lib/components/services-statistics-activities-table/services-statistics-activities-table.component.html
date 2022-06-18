@@ -1,0 +1,34 @@
+
+<p-table id="statistics-activities-table" [value]="tableValue"
+         styleClass="p-datatable-striped" responsiveLayout="scroll"
+         dataKey="category">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem"></th>
+      <th>Category</th>
+      <th># Activities</th>
+      <th>Hours</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-val let-expanded="expanded">
+    <tr>
+      <td>
+        <button type="button" pButton pRipple [pRowToggler]="val" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+      </td>
+      <td>{{val.category}}</td>
+      <td>{{val.activities.length}}</td>
+      <td>{{val.hours}}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="rowexpansion" let-val>
+    <tr>
+      <td colspan="4">
+        <div class="p-3">
+          <services-statistics-activity-table [activities]="val.activities"></services-statistics-activity-table>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

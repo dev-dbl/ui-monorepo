@@ -56,7 +56,7 @@ export class CampsListComponent implements OnInit, OnDestroy {
             });
           });
       },
-      reject: (type: any) => {
+      reject: () => {
       }
     });
   }

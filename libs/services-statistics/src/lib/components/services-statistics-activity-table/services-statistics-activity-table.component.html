@@ -1,0 +1,44 @@
+
+
+<p-table [value]="activities" dataKey="id">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Duration (Hrs)</th>
+      <th></th>
+      <th>Task</th>
+      <th>Client</th>
+      <th>Comment</th>
+      <th style="width: 4rem"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-activity>
+    <tr>
+      <td>{{activity.id}}</td>
+      <td>{{activity.date | date: 'E dd/MM/yyyy'}}</td>
+      <td>{{activity.durationHrs}}</td>
+      <td>
+        <div *ngIf="activity.review" class="p-2 flex align-items-center" style="border-radius: 2.5rem;">
+          <span [ngStyle]="{backgroundColor: '#FFC107'}" class="text-white flex align-items-center justify-content-center border-circle mr-2" style="min-width: 2rem; min-height: 2rem;">
+            <i class="pi pi-flag"></i>
+          </span>
+        </div>
+        <div *ngIf="activity.billable" class="p-2 flex align-items-center" style="border-radius: 2.5rem;">
+          <span class="bg-purple-500 text-white flex align-items-center justify-content-center border-circle mr-2" style="min-width: 2rem; min-height: 2rem;">
+            <i class="pi pi-dollar"></i>
+          </span>
+        </div>
+      </td>
+      <td>{{activity.task}}</td>
+      <td>{{activity.client}}</td>
+      <td>{{activity.comment}}</td>
+      <td><p-button type="button" icon="pi pi-search" (click)="openActivityDetailsDialog(activity)"></p-button></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="6">There are no activities.</td>
+    </tr>
+  </ng-template>
+</p-table>

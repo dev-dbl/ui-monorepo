@@ -10,5 +10,9 @@ export const CAMPS_REGISTRATIONS_STATUS: { [key: number]: any } = {
   2: {
     label: 'Abgelehnt',
     color: 'danger'
+  },
+  3: {
+    label: 'Bezahlt',
+    color: 'info'
   }
 };

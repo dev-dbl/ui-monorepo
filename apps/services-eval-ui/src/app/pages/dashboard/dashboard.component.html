@@ -1,0 +1,17 @@
+<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+
+  <div class="col-12">
+    <services-statistics-cards [consultantStatistics]="consultantStatistics" [servicesStatistics]="servicesStatistics"></services-statistics-cards>
+  </div>
+
+  <div class="col-12 flex justify-content-center align-items-center">
+    <p-chart type="doughnut" [data]="chartData" [options]="chartOptions" width="30vw" height="40vh"></p-chart>
+  </div>
+
+  <div class="col-12">
+    <p-panel header="Raw Data" [toggleable]="true" [collapsed]="true">
+      <services-statistics-table [servicesStatistics]="servicesStatistics"></services-statistics-table>
+    </p-panel>
+  </div>
+
+</div>

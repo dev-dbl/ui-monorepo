@@ -1,0 +1,7 @@
+<p-panel header="Upload">
+  <p-fileUpload name="activities[]" [customUpload]="true" (uploadHandler)="onUpload($event)"></p-fileUpload>
+</p-panel>
+
+<p-panel *ngIf="activities.length > 0" header="Data">
+  {{activities.length}}
+</p-panel>

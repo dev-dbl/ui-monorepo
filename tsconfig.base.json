@@ -19,6 +19,7 @@
       "@dbl-dev/events": ["libs/events/src/index.ts"],
       "@dbl-dev/orders": ["libs/orders/src/index.ts"],
       "@dbl-dev/products": ["libs/products/src/index.ts"],
+      "@dbl-dev/services-statistics": ["libs/services-statistics/src/index.ts"],
       "@dbl-dev/sponsors": ["libs/sponsors/src/index.ts"],
       "@dbl-dev/ui": ["libs/ui/src/index.ts"],
       "@dbl-dev/users": ["libs/users/src/index.ts"]

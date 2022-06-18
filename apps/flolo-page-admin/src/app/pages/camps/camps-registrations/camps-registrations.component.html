@@ -1,5 +1,6 @@
-<div *ngIf="registrations" class="flpa-camps-registrations">
-  <p-card header="Anmeldungen" [subheader]="'Liste der Anmeldungen für \'' + camp.name + '\''">
+<div *ngIf="registrations">
+  <p-card header="Anmeldungen"
+          [subheader]="'Liste der Anmeldungen für \'' + camp.name + '\' (' + (camp.startDate | date: 'dd/MM/yyyy') + ' - ' + (camp.endDate | date: 'dd/MM/yyyy') + ')'">
     <div class="grid">
       <div class="col-12">
         <p-toolbar>
@@ -7,23 +8,28 @@
             <button pButton pRipple type="button" label="Neu" icon="pi pi-plus"
                     class="p-button-rounded p-button-success"></button>
           </div>
+          <div *ngIf="camp.maxParticipants && camp.maxParticipants > 0" class="p-toolbar-group-right">
+            <span>{{getCurrentParticipants().length}}</span> / <span>{{camp.maxParticipants}}</span>
+          </div>
         </p-toolbar>
       </div>
 
       <div class="col-12">
-        <p-table id="camps-registrations-table" [value]="registrations">
+        <p-table responsiveLayout="stack" [value]="registrations">
           <ng-template pTemplate="header">
             <tr>
-              <th>Nachname</th>
+              <th pSortableColumn="registrationDate">Datum <p-sortIcon field="registrationDate"></p-sortIcon></th>
+              <th pSortableColumn="lastName">Nachname <p-sortIcon field="lastName"></p-sortIcon></th>
               <th>Vorname</th>
               <th>E-Mail</th>
-              <th>Status</th>
+              <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
               <th></th>
             </tr>
           </ng-template>
 
           <ng-template pTemplate="body" let-registration>
             <tr>
+              <td>{{registration.registrationDate | date: 'dd/MM/yyyy HH:mm'}}</td>
               <td>{{registration.lastName}}</td>
               <td>{{registration.firstName}}</td>
               <td>{{registration.email}}</td>
@@ -33,20 +39,26 @@
                        [rounded]="true"></p-tag>
               </td>
               <td>
-                <div class="p-d-flex p-jc-end">
+                <div class="flex justify-content-end">
                   <button *ngIf="registration.status === 0"
                           pButton pRipple type="button" label="" icon="pi pi-check"
-                          class="p-button-rounded p-button-success p-mr-1"
-                          (click)="acceptRegistration(registration)"></button>
+                          class="p-button-rounded p-button-success mr-1"
+                          (click)="changeStatus(registration, 1)"></button>
+
+                  <button *ngIf="registration.status === 1"
+                          pButton pRipple type="button" label="" icon="pi pi-dollar"
+                          class="p-button-rounded p-button-info mr-1"
+                          (click)="changeStatus(registration, 3)"></button>
+
                   <button *ngIf="registration.status !== 0"
                           pButton pRipple type="button" label="" icon="pi pi-lock-open"
-                          class="p-button-rounded p-button-warning p-mr-1"
-                          (click)="reopenRegistration(registration)"></button>
+                          class="p-button-rounded p-button-warning mr-1"
+                          (click)="changeStatus(registration, 0)"></button>
 
                   <button *ngIf="registration.status !== 2"
                           pButton pRipple type="button" label="" icon="pi pi-times"
                           class="p-button-rounded p-button-danger"
-                          (click)="rejectRegistration(registration)"></button>
+                          (click)="changeStatus(registration, 2)"></button>
                 </div>
               </td>
             </tr>
@@ -57,5 +69,5 @@
   </p-card>
 </div>
 
-<!--<p-confirmDialog [style]="{width: '100vw'}" [baseZIndex]="10000"-->
-<!--                 rejectButtonStyleClass="p-button-text"></p-confirmDialog>-->
+<p-confirmDialog [style]="{width: '100vw'}" [baseZIndex]="10000"
+                 rejectButtonStyleClass="p-button-text"></p-confirmDialog>

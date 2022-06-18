@@ -1,31 +1,56 @@
+<div class="box">
+  <img src="./assets/social/FloLo.jpg" alt="Flying Kites">
+  <div class="text">
+    <h1>Flying Kites</h1>
+  </div>
+</div>
+
+<!--<div class="overflow-hidden flex align-items-center justify-content-center">-->
+<!--  <div class="bg-center bg-no-repeat w-full h-full m-3 text-center flex align-items-center justify-content-center"-->
+<!--       style="background-image: url('./assets/social/FloLo.jpg');">-->
+<!--    <p>-->
+<!--      TEXT<br>-->
+<!--      TEXT<br>-->
+<!--      TEXT<br>-->
+<!--      TEXT-->
+<!--    </p>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="grid grid-nogutter surface-section text-800">
 <!--  <div class="col-12 md:col-6 overflow-hidden">-->
 <!--    <img alt="Image" class="md:ml-auto block md:h-full" src="assets/social/DSC03425.jpg" style="width:100%">-->
 <!--  </div>-->
 
-  <div class="col-12 md:col-6 overflow-hidden surface-section bg-white py-0 align-items-center">
-    <p-galleria [value]="images" [containerStyle]="{'max-width': '100%', 'text-align': 'center'}"
-                [autoPlay]="true" [transitionInterval]="5000"
-                [circular]="true" [showItemNavigators]="true" [showThumbnails]="false"
-                [showIndicators]="true" [showItemNavigatorsOnHover]="true" [showIndicatorsOnItem]="true">
-      <ng-template pTemplate="item" let-item>
-        <img [src]="item.previewImageSrc" style="width: 100%; display: block;" [alt]="item.alt" />
-      </ng-template>
-      <ng-template pTemplate="thumbnail" let-item>
-      </ng-template>
-    </p-galleria>
-  </div>
-
-  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center" style="background: #87b3bc">
+<!--    <p-galleria [value]="images" [containerStyle]="{'max-width': '100%', 'text-align': 'center'}"-->
+<!--                [autoPlay]="true" [transitionInterval]="5000"-->
+<!--                [circular]="true" [showItemNavigators]="true" [showThumbnails]="false"-->
+<!--                [showIndicators]="true" [showItemNavigatorsOnHover]="true" [showIndicatorsOnItem]="true">-->
+<!--      <ng-template pTemplate="item" let-item>-->
+<!--        <img [src]="item.previewImageSrc" style="width: 100%; display: block;" [alt]="item.alt" />-->
+<!--      </ng-template>-->
+<!--      <ng-template pTemplate="thumbnail" let-item>-->
+<!--      </ng-template>-->
+<!--    </p-galleria>-->
     <section>
       <span class="block text-6xl font-bold mb-1">Beachcamps mit Flo & Lo</span>
       <div class="text-6xl text-primary font-bold mb-3">Trainieren mit den Profis</div>
-      <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
       <button pButton pRipple label="Anmelden" type="button" class="p-button-raised"
               [routerLink]="'checkout/0'"></button>
     </section>
   </div>
+
+  <div class="col-12 md:col-6 flex align-content-center flex-wrap">
+    <section>
+      <p class="mt-10 mb-4 text-700 line-height-3 align-content-evenly">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </section>
+  </div>
+</div>
+
+<div class="col-12 align-items-center text-center align-content-center">
+  <img alt="Image" src="assets/social/DSC03425.jpg" style="width: 50%; position: relative; top: -100px;">
 </div>
 
 <!--<div>-->

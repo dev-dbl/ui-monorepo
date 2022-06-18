@@ -16,9 +16,13 @@ const routes: Routes = [
     component: ShellComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent
       },
+      // {
+      //   path: 'dashboard',
+      //   component: DashboardComponent
+      // },
       {
         path: 'sponsors',
         component: SponsorsListComponent

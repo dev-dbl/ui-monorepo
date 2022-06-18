@@ -41,8 +41,11 @@ export class EventsService {
     return this.http.post<EventRegistration>(`${this.apiUrlEvents}/registration`, eventRegistration);
   }
 
-  editEventRegistration(eventRegistration: EventRegistration): Observable<EventRegistration> {
-    return this.http.put<EventRegistration>(`${this.apiUrlEvents}/registration/${eventRegistration.id}`, eventRegistration);
+  editEventRegistration(eventRegistration: EventRegistration, sendMail = false): Observable<EventRegistration> {
+    return this.http.put<EventRegistration>(`${this.apiUrlEvents}/registration/${eventRegistration.id}`, {
+      eventRegistration,
+      sendMail
+    });
   }
 
   getImages(url: string) {
