@@ -43,9 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.servicesStatisticsService.getServicesStatistics(false).pipe(takeUntil(this.endSubs$)).subscribe(res => {
       this.servicesStatistics = res;
       this.consultantStatistics = this.servicesStatistics.filter(value =>
-        value.employee != 'Kath, Filip' &&
-        value.employee != 'Entner, Johannes' &&
-        value.employee != 'Bleidt, David'
+        value.employee.department == 'Consulting'
       );
       this.chartData = {
         labels: ['Verrechenbar','Support','Meeting', 'Training', 'Other'],

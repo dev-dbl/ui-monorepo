@@ -6,4 +6,8 @@ export class ServicesEmployee {
   department: string;
   superior: ServicesEmployee;
   employees: ServicesEmployee[];
+
+  getFullName() {
+    return this.lastName + ' ' + this.firstName;
+  }
 }

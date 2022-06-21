@@ -25,7 +25,7 @@ export class ServicesStatisticsService {
       return 0;
     } else {
       let billable: number[] = consultantStatistics.map(value => value.billable);
-      billable = billable.concat(servicesStatistics.filter(value => value.employee == 'Bleidt, David').map(value => value.billable));
+      billable = billable.concat(servicesStatistics.filter(value => value.employee.id == 1).map(value => value.billable));
 
       return billable.reduce((sum, current) => sum + current, 0);
     }
@@ -50,7 +50,7 @@ export class ServicesStatisticsService {
       return 0;
     } else {
       let possible: number[] = consultantStatistics.map(value => value.billable);
-      possible = possible.concat(servicesStatistics.filter(value => value.employee == 'Bleidt, David').map(value => value.billable));
+      possible = possible.concat(servicesStatistics.filter(value => value.employee.id == 1).map(value => value.billable));
       possible = possible.concat(consultantStatistics.map(value => value.support));
       possible = possible.concat(consultantStatistics.map(value => value.meeting));
       possible = possible.concat(consultantStatistics.map(value => value.training));

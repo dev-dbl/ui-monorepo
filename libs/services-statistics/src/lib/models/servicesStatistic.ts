@@ -1,7 +1,8 @@
 import { ServicesActivity } from './servicesActivity';
+import { ServicesEmployee } from './servicesEmployee';
 
 export class ServicesStatistic {
-  employee: string;
+  employee: ServicesEmployee;
   totalActivities: ServicesActivity[];
   total: number;
   billableActivities: ServicesActivity[];

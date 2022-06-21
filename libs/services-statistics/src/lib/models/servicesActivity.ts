@@ -1,5 +1,8 @@
+import { ServicesEmployee } from './servicesEmployee';
+
 export class ServicesActivity {
-  id: string;
+  id: number;
+  externalId: string;
   date: Date;
   from: Date;
   to: Date;
@@ -7,7 +10,7 @@ export class ServicesActivity {
   durationHrs: number;
   review: boolean;
   billable: boolean;
-  employee: string;
+  employee: ServicesEmployee;
   type: string;
   task: string;
   ticketSystem: string;

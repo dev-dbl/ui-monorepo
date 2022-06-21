@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ServicesStatistic, ServicesStatisticsService } from '@dbl-dev/services-statistics';
+import { ServicesEmployee, ServicesStatistic, ServicesStatisticsService } from '@dbl-dev/services-statistics';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -26,7 +26,12 @@ export class ServicesCheckComponent implements OnInit, OnDestroy {
 
   private _getServicesStatistics() {
     this.servicesStatisticsService.getServicesStatistics(true).pipe(takeUntil(this.endSubs$)).subscribe(res => {
-      this.servicesStatistics = res;
+      this.servicesStatistics = [];
+      res.forEach(r => {
+        const statistic = Object.assign(new ServicesStatistic(), r);
+        statistic.employee = Object.assign(new ServicesEmployee(), statistic.employee);
+        this.servicesStatistics.push(statistic);
+      });
     });
   }
 

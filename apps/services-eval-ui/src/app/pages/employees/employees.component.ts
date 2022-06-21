@@ -29,7 +29,11 @@ export class EmployeesComponent implements OnInit, OnDestroy {
 
   private _getServicesEmployees() {
     this.servicesEmployeesService.getEmployees().pipe(takeUntil(this.endSubs$)).subscribe(res => {
-      this.employees = res;
+      this.employees = [];
+      res.forEach(r => {
+        this.employees.push(Object.assign(new ServicesEmployee(), r));
+      });
+      // this.employees = res;
 
       const topLevelSuperior = this.employees.find(e => e.superior === null);
       let map: Map<string, ServicesEmployee[]>;
@@ -50,7 +54,8 @@ export class EmployeesComponent implements OnInit, OnDestroy {
           type: 'person',
           styleClass: 'p-person',
           expanded: true,
-          data: { name: topLevelSuperior?.firstName + ' ' + topLevelSuperior?.lastName },
+          // data: { name: topLevelSuperior?.firstName + ' ' + topLevelSuperior?.lastName },
+          data: { name: topLevelSuperior?.getFullName() },
           children: [{
             label: 'Consulting',
             expanded: true,
