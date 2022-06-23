@@ -1,49 +1,33 @@
-<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+<p-panel header="Upload" [toggleable]="true" [collapsed]="uploadCollapsed">
+  <p-fileUpload name="activities[]" [customUpload]="true" (uploadHandler)="onUpload($event)"></p-fileUpload>
+</p-panel>
 
-<!--  <div class="col-12">-->
-<!--    <services-statistics-cards [consultantStatistics]="consultantStatistics" [servicesStatistics]="servicesStatistics"></services-statistics-cards>-->
-<!--  </div>-->
+<p-panel *ngIf="anomalyNodes.length > 0" header="Anomalies">
+  <p-tree [value]="anomalyNodes">
+    <ng-template let-anomalyNode pTemplate="parent">
+      {{anomalyNode.label}} ({{anomalyNode.data}})
+    </ng-template>
+    <ng-template let-anomalyNode pTemplate="anomaly">
+      <p *ngIf="anomalyNode.data.length === 0">No anomalies for this type.</p>
 
-  <div class="col-12">
-    <p-panel [header]="'Anomalies (' + countAnomalies() + ')'">
-      <p-table id="anomalies-table" [value]="servicesStatistics"
-               styleClass="p-datatable-striped" sortField="employee"
-               dataKey="employee" responsiveLayout="scroll">
-        <ng-template pTemplate="header">
-          <tr>
-            <th style="width: 3rem"></th>
-            <th>Employee</th>
-            <th>Anomalies</th>
-          </tr>
-        </ng-template>
+      <services-statistics-activity-table [activities]="anomalyNode.data"></services-statistics-activity-table>
 
-        <ng-template pTemplate="body" let-statistic let-expanded="expanded">
-          <tr>
-            <td>
-              <button type="button" pButton pRipple [pRowToggler]="statistic" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-            </td>
-            <td>{{statistic.employee.getFullName()}}</td>
-            <td>{{statistic.anomalies.length}}</td>
-          </tr>
-        </ng-template>
+<!--      <p-table *ngIf="anomalyNode.data.length > 0" id="anomalies-table" [value]="anomalyNode.data"-->
+<!--               styleClass="p-datatable-striped" responsiveLayout="scroll">-->
+<!--        <ng-template pTemplate="header">-->
+<!--          <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Task</th>-->
+<!--          </tr>-->
+<!--        </ng-template>-->
 
-        <ng-template pTemplate="rowexpansion" let-statistic>
-          <tr>
-            <td colspan="11">
-              <div class="p-3">
-                <services-statistics-activity-table [activities]="statistic.anomalies"></services-statistics-activity-table>
-              </div>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </p-panel>
-  </div>
-
-  <div class="col-12">
-    <p-panel header="Raw Data" [toggleable]="true" [collapsed]="true">
-      <services-statistics-table [servicesStatistics]="servicesStatistics"></services-statistics-table>
-    </p-panel>
-  </div>
-
-</div>
+<!--        <ng-template pTemplate="body" let-activity>-->
+<!--          <tr>-->
+<!--            <td>{{activity.id}}</td>-->
+<!--            <td>{{activity.task}}</td>-->
+<!--          </tr>-->
+<!--        </ng-template>-->
+<!--      </p-table>-->
+    </ng-template>
+  </p-tree>
+</p-panel>

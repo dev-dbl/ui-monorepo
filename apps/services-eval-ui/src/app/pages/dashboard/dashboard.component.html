@@ -1,17 +1,325 @@
 <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
 
-  <div class="col-12">
-    <services-statistics-cards [consultantStatistics]="consultantStatistics" [servicesStatistics]="servicesStatistics"></services-statistics-cards>
-  </div>
-
-  <div class="col-12 flex justify-content-center align-items-center">
-    <p-chart type="doughnut" [data]="chartData" [options]="chartOptions" width="30vw" height="40vh"></p-chart>
-  </div>
+<!--  <div class="col-12">-->
+<!--    <services-statistics-cards [consultantStatistics]="consultantStatistics" [servicesStatistics]="servicesStatistics"></services-statistics-cards>-->
+<!--  </div>-->
 
   <div class="col-12">
-    <p-panel header="Raw Data" [toggleable]="true" [collapsed]="true">
-      <services-statistics-table [servicesStatistics]="servicesStatistics"></services-statistics-table>
-    </p-panel>
+    <div class="grid">
+      <div class="col-6">
+        <div class="surface-card shadow-2 border-round p-4">
+          <div class="flex align-items-start mb-5">
+            <div class="ml-3">
+              <span class="block text-900 mb-1 text-xl font-medium">Verteilung</span>
+              <p class="text-600 mt-0 mb-0">Gesamt</p>
+            </div>
+          </div>
+
+          <ul class="list-none p-0 m-0">
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-dollar mr-2"></i>
+                  <span class="font-medium text-900">Verrechenbar</span>
+                </span>
+                <span class="text-orange-500 font-medium">{{getPercent(billable, total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-orange-500 h-full" [ngStyle]="getWidth(getPercent(billable, total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-phone mr-2"></i>
+                  <span class="font-medium text-900">Support</span>
+                </span>
+                <span class="text-purple-500 font-medium">{{getPercent(support, total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-purple-500 h-full" [ngStyle]="getWidth(getPercent(support, total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-users mr-2"></i>
+                  <span class="font-medium text-900">Meeting</span>
+                </span>
+                <span class="text-yellow-500 font-medium">{{getPercent(meeting, total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-yellow-500 h-full" [ngStyle]="getWidth(getPercent(meeting, total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-wallet mr-2"></i>
+                  <span class="font-medium text-900">Sales</span>
+                </span>
+                <span class="text-green-500 font-medium">{{getPercent(sales, total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-green-500 h-full" [ngStyle]="getWidth(getPercent(sales, total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-twitter mr-2"></i>
+                  <span class="font-medium text-900">Training</span>
+                </span>
+                <span class="text-cyan-500 font-medium">{{getPercent(training, total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-cyan-500 h-full" [ngStyle]="getWidth(getPercent(training, total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-info-circle mr-2"></i>
+                  <span class="font-medium text-900">Other</span>
+                </span>
+                <span class="text-blue-500 font-medium">{{getPercent(other, total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-blue-500 h-full" [ngStyle]="getWidth(getPercent(other, total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="surface-card shadow-2 border-round p-4">
+          <div class="flex align-items-start mb-5">
+            <div class="ml-3">
+              <span class="block text-900 mb-1 text-xl font-medium">Verteilung</span>
+              <p class="text-600 mt-0 mb-0">Consulting</p>
+            </div>
+          </div>
+
+          <ul class="list-none p-0 m-0">
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-dollar mr-2"></i>
+                  <span class="font-medium text-900">Verrechenbar</span>
+                </span>
+                <span class="text-orange-500 font-medium">{{getPercent(billableConsulting, totalConsulting) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-orange-500 h-full" [ngStyle]="getWidth(getPercent(billableConsulting, totalConsulting) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-phone mr-2"></i>
+                  <span class="font-medium text-900">Support</span>
+                </span>
+                <span class="text-purple-500 font-medium">{{getPercent(supportConsulting, totalConsulting) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-purple-500 h-full" [ngStyle]="getWidth(getPercent(supportConsulting, totalConsulting) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-users mr-2"></i>
+                  <span class="font-medium text-900">Meeting</span>
+                </span>
+                <span class="text-yellow-500 font-medium">{{getPercent(meetingConsulting, totalConsulting) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-yellow-500 h-full" [ngStyle]="getWidth(getPercent(meetingConsulting, totalConsulting) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-wallet mr-2"></i>
+                  <span class="font-medium text-900">Sales</span>
+                </span>
+                <span class="text-green-500 font-medium">{{getPercent(salesConsulting, totalConsulting) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-green-500 h-full" [ngStyle]="getWidth(getPercent(salesConsulting, totalConsulting) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-twitter mr-2"></i>
+                  <span class="font-medium text-900">Training</span>
+                </span>
+                <span class="text-cyan-500 font-medium">{{getPercent(trainingConsulting, totalConsulting) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-cyan-500 h-full" [ngStyle]="getWidth(getPercent(trainingConsulting, totalConsulting) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-info-circle mr-2"></i>
+                  <span class="font-medium text-900">Other</span>
+                </span>
+                <span class="text-blue-500 font-medium">{{getPercent(otherConsulting, totalConsulting) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-blue-500 h-full" [ngStyle]="getWidth(getPercent(otherConsulting, totalConsulting) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <div *ngFor="let stat of servicesStatistics" class="col-4">
+        <div class="surface-card shadow-2 border-round p-4">
+          <div class="flex align-items-start mb-5">
+            <div class="ml-3">
+              <span class="block text-900 mb-1 text-xl font-medium">{{stat.employee.getFullName()}}</span>
+              <p class="text-600 mt-0 mb-0">{{stat.employee.title}}</p>
+            </div>
+          </div>
+
+          <ul class="list-none p-0 m-0">
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-dollar mr-2"></i>
+                  <span class="font-medium text-900">Verrechenbar</span>
+                </span>
+                <span class="text-orange-500 font-medium">{{getPercent(stat.billable, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-orange-500 h-full" [ngStyle]="getWidth(getPercent(stat.billable, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-phone mr-2"></i>
+                  <span class="font-medium text-900">Support</span>
+                </span>
+                <span class="text-purple-500 font-medium">{{getPercent(stat.support, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-purple-500 h-full" [ngStyle]="getWidth(getPercent(stat.support, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-users mr-2"></i>
+                  <span class="font-medium text-900">Meeting</span>
+                </span>
+                <span class="text-yellow-500 font-medium">{{getPercent(stat.meeting, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-yellow-500 h-full" [ngStyle]="getWidth(getPercent(stat.meeting, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-wallet mr-2"></i>
+                  <span class="font-medium text-900">Sales</span>
+                </span>
+                <span class="text-green-500 font-medium">{{getPercent(stat.sales, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-green-500 h-full" [ngStyle]="getWidth(getPercent(stat.sales, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-twitter mr-2"></i>
+                  <span class="font-medium text-900">Training</span>
+                </span>
+                <span class="text-cyan-500 font-medium">{{getPercent(stat.training, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-cyan-500 h-full" [ngStyle]="getWidth(getPercent(stat.training, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-info-circle mr-2"></i>
+                  <span class="font-medium text-900">Other</span>
+                </span>
+                <span class="text-blue-500 font-medium">{{getPercent(stat.other, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-blue-500 h-full" [ngStyle]="getWidth(getPercent(stat.other, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-search mr-2"></i>
+                  <span class="font-medium text-900">Development</span>
+                </span>
+                <span class="text-indigo-500 font-medium">{{getPercent(stat.development, stat.total) | percent: '1.2'}}</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-indigo-500 h-full" [ngStyle]="getWidth(getPercent(stat.development, stat.total) * 100)" style="border-radius: 4px;"></div>
+              </div>
+            </li>
+
+            <li class="mb-5">
+              <div class="flex justify-content-between align-items-center">
+                <span class="text-900 inline-flex justify-content-between align-items-center">
+                  <i class="pi pi-clock mr-2"></i>
+                  <span class="font-medium text-900">{{stat.total}}h</span>
+                </span>
+                <span class="text-bluegray-500 font-medium">100.00%</span>
+              </div>
+              <div class="surface-300 w-full mt-2" style="height: 7px; border-radius: 4px;">
+                <div class="bg-bluegray-500 h-full" style="width: 100%; border-radius: 4px;"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--  <div class="col-12 flex justify-content-center align-items-center">-->
+<!--    <p-chart type="doughnut" [data]="chartData" [options]="chartOptions" width="30vw" height="40vh"></p-chart>-->
+<!--  </div>-->
+
+<!--  <div class="col-12">-->
+<!--    <p-panel header="Raw Data" [toggleable]="true" [collapsed]="true">-->
+<!--      <services-statistics-table [servicesStatistics]="servicesStatistics"></services-statistics-table>-->
+<!--    </p-panel>-->
+<!--  </div>-->
 
 </div>

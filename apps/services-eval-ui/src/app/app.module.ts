@@ -23,26 +23,28 @@ import { OrganizationChartModule } from 'primeng/organizationchart';
 import { SupportComponent } from './pages/support/support.component';
 import { UploadActivitiesComponent } from './pages/upload-activities/upload-activities.component';
 import { FileUploadModule } from 'primeng/fileupload';
+import { TreeModule } from 'primeng/tree';
 
 @NgModule({
   declarations: [AppComponent, ShellComponent, SidebarComponent, DashboardComponent, ServicesCheckComponent, EmployeesComponent, SupportComponent, UploadActivitiesComponent],
-  imports: [
-    BrowserModule,
-    RouterModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ToastModule,
-    TableModule,
-    ChartModule,
-    ButtonModule,
-    RippleModule,
-    ServicesStatisticsModule,
-    AccordionModule,
-    PanelModule,
-    BrowserAnimationsModule,
-    OrganizationChartModule,
-    FileUploadModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ToastModule,
+        TableModule,
+        ChartModule,
+        ButtonModule,
+        RippleModule,
+        ServicesStatisticsModule,
+        AccordionModule,
+        PanelModule,
+        BrowserAnimationsModule,
+        OrganizationChartModule,
+        FileUploadModule,
+        TreeModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
