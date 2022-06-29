@@ -7,8 +7,8 @@ import { ServicesEmployee } from '../models/servicesEmployee';
 @Injectable({
   providedIn: 'root'
 })
-export class ServicesEmployeesService {
-  apiUrlEvents = environment.apiUrl + 'employees';
+export class ServicesEmployeeService {
+  apiUrlEvents = environment.apiUrl + 'employee';
 
   constructor(private http: HttpClient) { }
 

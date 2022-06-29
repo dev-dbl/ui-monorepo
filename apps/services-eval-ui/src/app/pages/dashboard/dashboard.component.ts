@@ -4,8 +4,8 @@ import {
   ServicesStatistic,
   ServicesStatisticsService
 } from '@dbl-dev/services-statistics';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
+import { Subject, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'seu-dashboard',
@@ -17,9 +17,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   servicesStatistics: ServicesStatistic[];
   consultantStatistics: ServicesStatistic[];
   endSubs$: Subject<any> = new Subject();
-
-  chartData: any;
-  chartOptions: any;
 
   billable: number;
   support: number;
@@ -40,17 +37,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._getServicesStatistics();
-
-    this.chartOptions = {
-      plugins: {
-        legend: {
-          labels: {
-            // color: '#EBEDEF'
-            color: '#495057'
-          }
-        }
-      }
-    }
   }
 
   ngOnDestroy(): void {
@@ -59,18 +45,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   private _getServicesStatistics() {
-    this.servicesStatisticsService.getServicesStatistics(false).pipe(takeUntil(this.endSubs$)).subscribe(res => {
-      this.servicesStatistics = [];
-      res.forEach(r => {
-        const stat = Object.assign(new ServicesStatistic(), r);
-        stat.employee = Object.assign(new ServicesEmployee(), stat.employee);
-        this.servicesStatistics.push(stat);
-      });
-
-      this.consultantStatistics = this.servicesStatistics.filter(value =>
-        value.employee.department == 'Consulting'
-      );
-      this._loadStats();
+    forkJoin([
+        this.servicesStatisticsService.getServicesStatistics().pipe(map((val) => {
+          return val.map(v => this.servicesStatisticsService.mapServicesStatistic(v));
+        })),
+        this.servicesStatisticsService.getServicesStatisticsOfBillableEmployees().pipe(map((val) => {
+          return val.map(v => this.servicesStatisticsService.mapServicesStatistic(v));
+        }))
+      ]).pipe(takeUntil(this.endSubs$)).subscribe(res => {
+        this.servicesStatistics = res[0];
+        this.consultantStatistics = res[1];
+        this._loadStats();
     });
   }
 

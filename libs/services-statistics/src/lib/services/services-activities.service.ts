@@ -12,10 +12,10 @@ export class ServicesActivitiesService {
 
   constructor(private http: HttpClient) { }
 
-  uploadFile(file: File): Observable<string> {
+  uploadFile(file: File): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
-    return this.http.post<string>(`${this.apiUrlEvents}/uploadFile`, formData);
+    return this.http.post<any>(`${this.apiUrlEvents}/uploadFile`, formData);
   }
 
   uploadActivities(file: File): Observable<ServicesActivity[]> {

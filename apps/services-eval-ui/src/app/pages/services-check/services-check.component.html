@@ -1,33 +1,15 @@
-<p-panel header="Upload" [toggleable]="true" [collapsed]="uploadCollapsed">
-  <p-fileUpload name="activities[]" [customUpload]="true" (uploadHandler)="onUpload($event)"></p-fileUpload>
-</p-panel>
+<div class="grid">
 
-<p-panel *ngIf="anomalyNodes.length > 0" header="Anomalies">
-  <p-tree [value]="anomalyNodes">
-    <ng-template let-anomalyNode pTemplate="parent">
-      {{anomalyNode.label}} ({{anomalyNode.data}})
-    </ng-template>
-    <ng-template let-anomalyNode pTemplate="anomaly">
-      <p *ngIf="anomalyNode.data.length === 0">No anomalies for this type.</p>
+  <div class="col-12">
+    <p-panel header="Upload" [toggleable]="true" [collapsed]="uploadCollapsed">
+      <p-fileUpload name="activities[]" [customUpload]="true" (uploadHandler)="onUpload($event)"></p-fileUpload>
+    </p-panel>
+  </div>
 
-      <services-statistics-activity-table [activities]="anomalyNode.data"></services-statistics-activity-table>
+  <div *ngIf="servicesEmployeeAnomalies.length > 0" class="col-12">
+    <p-panel [header]="'Anomalies'">
+      <services-employee-anomalies-table [servicesEmployeeAnomalies]="servicesEmployeeAnomalies"></services-employee-anomalies-table>
+    </p-panel>
+  </div>
 
-<!--      <p-table *ngIf="anomalyNode.data.length > 0" id="anomalies-table" [value]="anomalyNode.data"-->
-<!--               styleClass="p-datatable-striped" responsiveLayout="scroll">-->
-<!--        <ng-template pTemplate="header">-->
-<!--          <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>Task</th>-->
-<!--          </tr>-->
-<!--        </ng-template>-->
-
-<!--        <ng-template pTemplate="body" let-activity>-->
-<!--          <tr>-->
-<!--            <td>{{activity.id}}</td>-->
-<!--            <td>{{activity.task}}</td>-->
-<!--          </tr>-->
-<!--        </ng-template>-->
-<!--      </p-table>-->
-    </ng-template>
-  </p-tree>
-</p-panel>
+</div>

@@ -44,7 +44,7 @@ export class SupportComponent implements OnInit, OnDestroy {
   }
 
   private _getServicesStatistics() {
-    this.servicesStatisticsService.getServicesStatistics(false).pipe(takeUntil(this.endSubs$)).subscribe(res => {
+    this.servicesStatisticsService.getServicesStatistics().pipe(takeUntil(this.endSubs$)).subscribe(res => {
       this.servicesStatistics = res;
       this.supportStatistics = this.servicesStatistics.filter(value =>
         value.supportActivities.length > 0

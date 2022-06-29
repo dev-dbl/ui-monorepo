@@ -1,0 +1,30 @@
+<p-table id="anomalies-table" [value]="servicesAnomalies"
+         styleClass="p-datatable-striped" dataKey="type">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem; background-color: lightskyblue;"></th>
+      <th style="background-color: lightskyblue;">Type</th>
+      <th style="background-color: lightskyblue;">Count</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-anomaly let-expanded="expanded">
+    <tr>
+      <td>
+        <button *ngIf="anomaly.activities.length > 0" type="button" pButton pRipple [pRowToggler]="anomaly" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+      </td>
+      <td>{{anomaly.type}}</td>
+      <td>{{anomaly.activities.length}}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="rowexpansion" let-anomaly>
+    <tr>
+      <td colspan="3">
+        <div class="p-1">
+          <services-statistics-activity-table [activities]="anomaly.activities"></services-statistics-activity-table>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

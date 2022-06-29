@@ -1,17 +1,15 @@
-
-
 <p-table [value]="activities" dataKey="id"
          styleClass="p-datatable-striped" responsiveLayout="scroll">
   <ng-template pTemplate="header">
     <tr>
-      <th>Id</th>
-      <th>Date</th>
-      <th>Duration (Hrs)</th>
-      <th></th>
-      <th>Task</th>
-      <th>Client</th>
-      <th>Comment</th>
-      <th style="width: 4rem"></th>
+      <th style="background-color: orange;">Id</th>
+      <th style="background-color: orange;">Date</th>
+      <th style="background-color: orange;">Duration (Hrs)</th>
+      <th style="background-color: orange;"></th>
+      <th style="background-color: orange;">Task</th>
+      <th style="background-color: orange;">Client</th>
+      <th style="background-color: orange;">Comment</th>
+      <th style="width: 4rem; background-color: orange;"></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-activity>

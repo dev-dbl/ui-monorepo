@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TreeNode } from 'primeng/api';
-import { ServicesEmployeesService } from '@dbl-dev/services-statistics';
+import { ServicesEmployeeService } from '@dbl-dev/services-statistics';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ServicesEmployee } from '@dbl-dev/services-statistics';
@@ -16,7 +16,7 @@ export class EmployeesComponent implements OnInit, OnDestroy {
   employees: ServicesEmployee[];
   endSubs$: Subject<any> = new Subject();
 
-  constructor(private servicesEmployeesService: ServicesEmployeesService) { }
+  constructor(private servicesEmployeesService: ServicesEmployeeService) { }
 
   ngOnInit(): void {
     this._getServicesEmployees();

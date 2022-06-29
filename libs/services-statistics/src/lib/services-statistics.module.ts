@@ -11,6 +11,8 @@ import { ServicesActivityDetailsComponent } from './components/services-activity
 import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { TagModule } from 'primeng/tag';
 import { ServicesStatisticsSupportCardsComponent } from './components/services-statistics-support-cards/services-statistics-support-cards.component';
+import { ServicesEmployeeAnomaliesTableComponent } from './components/services-employee-anomalies-table/services-employee-anomalies-table.component';
+import { ServicesAnomaliesTableComponent } from './components/services-anomalies-table/services-anomalies-table.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,17 @@ import { ServicesStatisticsSupportCardsComponent } from './components/services-s
     ServicesStatisticsActivityTableComponent,
     ServicesStatisticsActivitiesTableComponent,
     ServicesActivityDetailsComponent,
-    ServicesStatisticsSupportCardsComponent
+    ServicesStatisticsSupportCardsComponent,
+    ServicesEmployeeAnomaliesTableComponent,
+    ServicesAnomaliesTableComponent
   ],
   exports: [
     ServicesStatisticsTableComponent,
     ServicesStatisticsCardsComponent,
     ServicesStatisticsActivityTableComponent,
-    ServicesStatisticsSupportCardsComponent
+    ServicesStatisticsSupportCardsComponent,
+    ServicesEmployeeAnomaliesTableComponent,
+    ServicesAnomaliesTableComponent
   ],
   imports: [
     CommonModule,

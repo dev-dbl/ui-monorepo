@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ServicesStatistic } from '../models/servicesStatistic';
 import { ServicesActivity } from '../models/servicesActivity';
+import { ServicesEmployee } from '../models/servicesEmployee';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,21 @@ export class ServicesStatisticsService {
 
   constructor(private http: HttpClient) { }
 
-  getServicesStatistics(anomalyCheck: boolean): Observable<ServicesStatistic[]> {
-    return this.http.get<ServicesStatistic[]>(this.apiUrlEvents, {
-      params: new HttpParams().set('anomalyCheck', anomalyCheck)
-    });
+  getServicesStatistics(): Observable<ServicesStatistic[]> {
+    return this.http.get<ServicesStatistic[]>(this.apiUrlEvents);
+  }
+
+  getServicesStatisticsOfBillableEmployees(): Observable<ServicesStatistic[]> {
+    return this.http.get<ServicesStatistic[]>(this.apiUrlEvents + '/ofBillableEmployees');
   }
 
   // UTILS
+  mapServicesStatistic(val: ServicesStatistic): ServicesStatistic {
+    const stat = Object.assign(new ServicesStatistic(), val);
+    stat.employee = Object.assign(new ServicesEmployee(), stat.employee);
+    return stat;
+  }
+
   getTotalBillable(consultantStatistics: ServicesStatistic[], servicesStatistics: ServicesStatistic[]): number {
     if (consultantStatistics === undefined) {
       return 0;

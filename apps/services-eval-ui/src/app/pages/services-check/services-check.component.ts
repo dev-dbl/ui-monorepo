@@ -1,14 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   ServicesActivitiesService,
-  ServicesAnomaly,
-  ServicesEmployee,
-  ServicesStatistic,
-  ServicesStatisticsService
+  ServicesAnomaly, ServicesEmployee,
+  ServicesEmployeeAnomaly
 } from '@dbl-dev/services-statistics';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ServicesAnomalyService } from '../../../../../../libs/services-statistics/src/lib/services/services-anomaly.service';
+import { ServicesAnomalyService } from '@dbl-dev/services-statistics';
 import { TreeNode } from 'primeng/api';
 
 @Component({
@@ -19,6 +17,7 @@ import { TreeNode } from 'primeng/api';
 export class ServicesCheckComponent implements OnInit, OnDestroy {
 
   anomalyNodes: TreeNode[];
+  servicesEmployeeAnomalies: ServicesEmployeeAnomaly[];
   servicesAnomalies: ServicesAnomaly[];
   uploadCollapsed = false;
 
@@ -29,6 +28,7 @@ export class ServicesCheckComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.anomalyNodes = [];
+    this.servicesEmployeeAnomalies = [];
     this.servicesAnomalies = [];
   }
 
@@ -41,32 +41,15 @@ export class ServicesCheckComponent implements OnInit, OnDestroy {
 
   onUpload(event: any) {
     this.servicesActivitiesService.uploadFile(event.files[0]).pipe(takeUntil(this.endSubs$)).subscribe(res => {
-      this.servicesAnomalyService.getAnomaliesByFileName(res).pipe(takeUntil(this.endSubs2$)).subscribe(res2 => {
-        res2.forEach(a => {
-          this.anomalyNodes.push({
-            label: `${a.type}`,
-            type: 'parent',
-            data: a.activities.length,
-            children : [
-              { label: 'Anomaly', type: 'anomaly', data: a.activities }
-            ]
-          })
+      this.servicesAnomalyService.getEmployeeAnomaliesByFileName(res.message).pipe(takeUntil(this.endSubs2$)).subscribe(res2 => {
+        this.servicesEmployeeAnomalies = [];
+        res2.forEach(r => {
+          const empAnomaly = Object.assign(new ServicesEmployeeAnomaly(), r);
+          empAnomaly.employee = Object.assign(new ServicesEmployee(), empAnomaly.employee);
+          this.servicesEmployeeAnomalies.push(empAnomaly);
         });
-
-        // this.anomalyNodes = [
-        //   {
-        //     key: '0',
-        //     label: '0',
-        //     type: 'parent',
-        //     children: [
-        //       { key: '0-0', label: 'something', type: 'anomaly', data: { id: 1, name: 'idk' } }
-        //     ]
-        //   }
-        // ];
-
-        this.servicesAnomalies = res2;
         this.uploadCollapsed = true;
-      })
+      });
     });
   }
 }
